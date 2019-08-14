@@ -23,17 +23,13 @@
  */
 package org.tjc.common.utils;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import java.text.MessageFormat;
 import org.junit.After;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import static org.tjc.common.utils.StringFormatUtils.trueOrFalse;
 import static org.tjc.common.utils.StringFormatUtils.yesOrNo;
-import static org.tjc.common.utils.test.UnitTestSupport.getMethodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeMessage;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
 
 /**
  *
@@ -43,12 +39,10 @@ public class StringFormatUtilsTest {
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     @After
     public void tearDown() {
-        setShowOutput(false);
     }
 
     /**
@@ -56,13 +50,10 @@ public class StringFormatUtilsTest {
      */
     @Test
     public void testYesOrNo() {
-        writeBanner(getMethodName());
-
-        assertThat(yesOrNo(true)).isEqualTo("yes");
-        assertThat(yesOrNo(false)).isEqualTo("no");
-        writeMessage("should be 'yes': {0}", yesOrNo(true));
-        writeMessage("should be 'no' : {0}", yesOrNo(false));
-        writeln();
+        assertEquals(yesOrNo(true), "yes");
+        assertEquals(yesOrNo(false), "no");
+        System.out.println(MessageFormat.format("should be 'yes': {0}", yesOrNo(true)));
+        System.out.println(MessageFormat.format("should be 'no' : {0}", yesOrNo(false)));
     }
 
     /**
@@ -70,12 +61,9 @@ public class StringFormatUtilsTest {
      */
     @Test
     public void testTrueOrFalse() {
-        writeBanner(getMethodName());
-
-        assertThat(trueOrFalse(true)).isEqualTo("true");
-        assertThat(trueOrFalse(false)).isEqualTo("false");
-        writeMessage("should be 'true' : {0}", trueOrFalse(true));
-        writeMessage("should be 'false': {0}", trueOrFalse(false));
+        assertEquals(trueOrFalse(true), "true");
+        assertEquals(trueOrFalse(false), "false");
+        System.out.println(MessageFormat.format("should be 'true' : {0}", trueOrFalse(true)));
+        System.out.println(MessageFormat.format("should be 'false': {0}", trueOrFalse(false)));
     }
-
 }

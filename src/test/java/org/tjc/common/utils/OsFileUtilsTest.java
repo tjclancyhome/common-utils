@@ -23,14 +23,10 @@
  */
 package org.tjc.common.utils;
 
+import java.text.MessageFormat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.tjc.common.utils.test.UnitTestSupport.getMethodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeMessage;
 
 /**
  *
@@ -40,12 +36,10 @@ public class OsFileUtilsTest {
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     @After
     public void tearDown() {
-        setShowOutput(false);
     }
 
     /**
@@ -53,9 +47,7 @@ public class OsFileUtilsTest {
      */
     @Test
     public void testGetOpenFileCount() {
-        writeBanner(getMethodName());
-
-        writeMessage("Number of open files: {0}", OsFileUtils.getOpenFileCount());
+        System.out.println(MessageFormat.format("Number of open files: {0}", OsFileUtils.getOpenFileCount()));
     }
 
     /**
@@ -63,9 +55,7 @@ public class OsFileUtilsTest {
      */
     @Test
     public void testGetMaxFileCount() {
-        writeBanner(getMethodName());
-
-        writeMessage("Max number of files: {0}", OsFileUtils.getMaxFileCount());
+        System.out.println(MessageFormat.format("Max number of files: {0}", OsFileUtils.getMaxFileCount()));
     }
 
 }

@@ -28,16 +28,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.text.MessageFormat;
 import static java.util.Arrays.asList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.Before;
 import org.junit.Test;
-import static org.tjc.common.utils.test.UnitTestSupport.getMethodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeMessage;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
 
 /**
  *
@@ -47,72 +43,60 @@ public class TestJDKReflection {
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     @Test
     public void testGetMethods() {
-        writeBanner(getMethodName());
-
         Class<Class> clazz = Class.class;
         List<Method> methods = asList(clazz.getMethods());
-        methods.forEach(m -> writeln(m));
-        writeln();
+        methods.forEach(m -> System.out.println(m));
+        System.out.println();
     }
 
     @Test
     public void testGetDeclaredFields() {
-        writeBanner(getMethodName());
-
         Class<Class> clazz = Class.class;
         List<Field> fields = asList(clazz.getDeclaredFields());
-        fields.forEach(f -> writeln(f));
-        writeln();
+        fields.forEach(System.out::println);
+        System.out.println();
     }
 
     @Test
     public void testGetGetters() {
-        writeBanner(getMethodName());
-
         Class<Expression> clazz = Expression.class;
         List<Method> methods = asList(clazz.getMethods());
         List<Method> getters = methods.stream().filter(m
-            -> //(m.getName().startsWith("get") || m.getName().startsWith("is") || m.getName().startsWith("has"))
-            m.getParameterCount() == 0
-            && !m.getReturnType().getTypeName().equals("void"))
-            .collect(Collectors.toList());
-        getters.forEach(m -> writeln(m.getName()));
-        writeln();
+                -> m.getParameterCount() == 0
+                && !m.getReturnType().getTypeName().equals("void"))
+                .collect(Collectors.toList());
+        getters.forEach(m -> System.out.println(m.getName()));
+        System.out.println();
     }
 
     @Test
     public void testSetters() {
-        writeBanner(getMethodName());
-
         Class<Expression> clazz = Expression.class;
         List<Method> methods = asList(clazz.getMethods());
         List<Method> setters = methods.stream().filter(m
-            -> m.getName().startsWith("set")
-            && m.getParameterCount() > 0
-            && m.getReturnType().getTypeName().equals("void"))
-            .collect(Collectors.toList());
-        setters.forEach(m -> writeln(m.getName()));
-        writeln();
+                -> m.getName().startsWith("set")
+                && m.getParameterCount() > 0
+                && m.getReturnType().getTypeName().equals("void"))
+                .collect(Collectors.toList());
+        setters.forEach(m -> System.out.println(m.getName()));
+        System.out.println();
     }
 
     @Test
     public void testConstructors() {
-        writeBanner(getMethodName());
-
         Class<Expression> clazz = Expression.class;
         List<Constructor<?>> ctors = asList(clazz.getConstructors());
         ctors.forEach(c -> {
-            writeln(c);
+            System.out.println(c);
             if (c.getParameterCount() > 0) {
                 List<Parameter> parms = asList(c.getParameters());
-                parms.forEach(p -> writeMessage("    {0}", p));
+                parms.forEach(p -> MessageFormat.format("    {0}", p));
             }
         });
-        writeln();
+        System.out.println();
     }
 }

@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2018 tjclancy.
+ * Copyright 2019 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,30 +21,56 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.math.linear;
+package org.tjc.common.utils;
 
 /**
  *
  * @author tjclancy
  */
-public class RealMatrix implements Matrix {
+public final class SystemInfo {
 
-    private final int rowDimension;
-    private final int columnDimension;
-
-    public RealMatrix(int rows, int columns) {
-        this.rowDimension = rows;
-        this.columnDimension = columns;
+    public static String fileEncoding() {
+        return System.getProperty("file.encoding");
     }
 
-    @Override
-    public int getRowDimension() {
-        return rowDimension;
+    public static String javaRuntimeVersion() {
+        return System.getProperty("java.runtime.version");
     }
 
-    @Override
-    public int getColumnDimension() {
-        return columnDimension;
+    public static String javaVersion() {
+        return System.getProperty("java.version");
+    }
+
+    public static String javafxVersion() {
+        return System.getProperty("javafx.version");
+    }
+
+    public static String osArch() {
+        return System.getProperty("os.arch");
+    }
+
+    public static String osName() {
+        return System.getProperty("os.name");
+    }
+
+    public static String osVersion() {
+        return System.getProperty("os.version");
+    }
+
+    public static String userName() {
+        return System.getProperty("user.name");
+    }
+
+    public static String userHome() {
+        return System.getProperty("user.home");
+    }
+
+    public static String userDir() {
+        return System.getProperty("user.dir");
+    }
+
+    public static String userLanguage() {
+        return System.getProperty("user.language");
     }
 
 }

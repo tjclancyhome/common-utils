@@ -23,16 +23,11 @@
  */
 package org.tjc.common.utils;
 
+import static java.util.Arrays.asList;
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-
-import static java.util.Arrays.asList;
-import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.tjc.common.utils.test.UnitTestSupport.methodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
 
 /**
  *
@@ -45,7 +40,6 @@ public class StringUtilsTest {
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     /**
@@ -53,13 +47,10 @@ public class StringUtilsTest {
      */
     @Test
     public void testMaxLength() {
-        writeBanner(methodName());
-
         List<String> strs = asList("this", "is", "an", "extremely", "simple", "test");
         int expected = 9;
         int maxLength = StringUtils.maxLength(strs);
-        assertThat(maxLength).isEqualTo(expected);
-        writeln(maxLength);
+        assertEquals(maxLength, expected);
     }
 
 }

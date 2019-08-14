@@ -23,8 +23,6 @@
  */
 package org.tjc.common.utils;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
@@ -39,14 +37,17 @@ import static java.util.Arrays.asList;
  * @param <T>
  */
 public class Chooser<T> {
-    private final ImmutableList<T> choiceList;
+
+    //private final ImmutableList<T> choiceList;
+    private final List<T> choiceList;
 
     /**
      *
      * @param choices
      */
     private Chooser(Collection<T> choices) {
-        this.choiceList = ImmutableList.copyOf(choices);
+        this.choiceList = List.copyOf(choices);
+        //this.choiceList = ImmutableList.copyOf(choices);
     }
 
     /**
@@ -101,8 +102,8 @@ public class Chooser<T> {
      *
      * @return
      */
-    public List getChoiceList() {
-        return Lists.newArrayList(choiceList);
+    public List<T> getChoiceList() {
+        return List.copyOf(choiceList);
     }
 
     /**

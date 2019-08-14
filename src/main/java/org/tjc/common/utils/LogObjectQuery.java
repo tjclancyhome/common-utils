@@ -26,7 +26,7 @@ package org.tjc.common.utils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+import org.slf4j.Logger;
 import static org.tjc.common.utils.StringFormatUtils.trueOrFalse;
 
 /**
@@ -34,25 +34,26 @@ import static org.tjc.common.utils.StringFormatUtils.trueOrFalse;
  * @author tjclancy
  */
 public final class LogObjectQuery {
+
     private static final String LOG_LEVEL_STATE_FORMAT = "%s: %s";
 
     public static class Slf4jQuery {
 
-        public static List<String> getLogLevelsState(org.slf4j.Logger log) {
+        public static List<String> getLogLevelsState(Logger log) {
             Objects.requireNonNull(log, "The logger argument is null.");
 
             List<String> levelsState = new ArrayList<>();
 
             levelsState.add(String.format(LOG_LEVEL_STATE_FORMAT, "isErrorEnabled", trueOrFalse(log.
-                isErrorEnabled())));
+                    isErrorEnabled())));
             levelsState.add(String.format(LOG_LEVEL_STATE_FORMAT, "isInfoEnabled ", trueOrFalse(log.
-                isInfoEnabled())));
+                    isInfoEnabled())));
             levelsState.add(String.format(LOG_LEVEL_STATE_FORMAT, "isWarnEnabled ", trueOrFalse(log.
-                isWarnEnabled())));
+                    isWarnEnabled())));
             levelsState.add(String.format(LOG_LEVEL_STATE_FORMAT, "isDebugEnabled", trueOrFalse(log.
-                isDebugEnabled())));
+                    isDebugEnabled())));
             levelsState.add(String.format(LOG_LEVEL_STATE_FORMAT, "isTraceEnabled", trueOrFalse(log.
-                isTraceEnabled())));
+                    isTraceEnabled())));
 
             return levelsState;
         }

@@ -23,13 +23,7 @@
  */
 package org.tjc.common.json;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import static org.tjc.common.utils.test.UnitTestSupport.methodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
 
 /**
  *
@@ -37,15 +31,9 @@ import static org.tjc.common.utils.test.UnitTestSupport.writeln;
  */
 public class JsonFormatterTest {
 
-    private static final String JSON_DOC = "{\"data\": {\"authMethods\": [\"local\", \"Active Directory\"]},\"status\": 200,\"message\": null,\"isSuccessful\": true}\n"
-        + "";
+    private static final String JSON_DOC = "{\"data\": {\"authMethods\": [\"local\", \"Active Directory\"]},\"status\": 200,\"message\": null,\"isSuccessful\": true}\n";
 
     public JsonFormatterTest() {
-    }
-
-    @Before
-    public void setup() {
-        setShowOutput(true);
     }
 
     /**
@@ -55,10 +43,9 @@ public class JsonFormatterTest {
      */
     @Test
     public void testFormatJson_String() throws Exception {
-        writeBanner(methodName());
         String jsonDoc = JSON_DOC;
         String result = JsonFormatter.formatJson(jsonDoc);
-        writeln(result);
+        System.out.println(result);
     }
 
     /**
@@ -68,7 +55,6 @@ public class JsonFormatterTest {
      */
     @Test
     public void testFormatJson_Object() throws Exception {
-        writeBanner(methodName());
     }
 
 }

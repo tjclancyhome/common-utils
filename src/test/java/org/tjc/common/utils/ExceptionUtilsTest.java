@@ -26,10 +26,6 @@ package org.tjc.common.utils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.tjc.common.utils.test.UnitTestSupport.methodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
 
 /**
  *
@@ -42,12 +38,10 @@ public class ExceptionUtilsTest {
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     @After
     public void tearDown() {
-        setShowOutput(false);
     }
 
     /**
@@ -55,12 +49,10 @@ public class ExceptionUtilsTest {
      */
     @Test
     public void testGetRootErrorMessage() {
-        writeBanner(methodName());
         try {
             throw new RuntimeException("This is the root cause, man!");
         } catch (RuntimeException ex) {
-            writeln(ExceptionUtils.getRootErrorMessage(ex));
+            System.out.println(ExceptionUtils.getRootErrorMessage(ex));
         }
     }
-
 }

@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2018 tjclancy.
+ * Copyright 2019 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.math.linear;
+
+package org.tjc.common.utils;
 
 import org.junit.After;
 import org.junit.Before;
@@ -31,13 +32,13 @@ import org.junit.Test;
  *
  * @author tjclancy
  */
-public class RealMatrixTest {
+public class MemoryMetricsConvertersTest {
 
-    public RealMatrixTest() {
+    public MemoryMetricsConvertersTest() {
     }
 
     @Before
-    public void setUp() {
+    public void setup() {
     }
 
     @After
@@ -45,17 +46,49 @@ public class RealMatrixTest {
     }
 
     /**
-     * Test of getRowDimension method, of class RealMatrix.
+     * Test of humanReadableByteCount method, of class MemoryMetricsConverters.
      */
     @Test
-    public void testGetRowDimension() {
+    public void testHumanReadableByteCount() {
+        String converted = MemoryMetricsConverters.humanReadableByteCount(8192);
+        System.out.println("8192 bytes = " + converted);
+        converted = MemoryMetricsConverters.humanReadableByteCount(512);
+        System.out.println("512 bytes = " + converted);
     }
 
     /**
-     * Test of getColumnDimension method, of class RealMatrix.
+     * Test of bytesToKB method, of class MemoryMetricsConverters.
      */
     @Test
-    public void testGetColumnDimension() {
+    public void testBytesToKB() {
+    }
+
+    /**
+     * Test of bytesToMB method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testBytesToMB() {
+    }
+
+    /**
+     * Test of bytesToGB method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testBytesToGB() {
+    }
+
+    /**
+     * Test of bytesToTB method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testBytesToTB() {
+    }
+
+    /**
+     * Test of toMostRelevantString method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testToMostRelevantString() {
     }
 
 }

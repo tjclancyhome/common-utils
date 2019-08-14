@@ -25,8 +25,6 @@ package org.tjc.common.reflect;
 
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  *
@@ -53,19 +51,17 @@ public class BeanReflector<T> {
         return null;
     }
 
-    public List<Method> getGetterMethods() {
-        return Stream.of(beanClass.getDeclaredMethods())
-            .filter(m -> isGetter(m))
-            .collect(Collectors.toList());
-    }
-
-    public List<Method> getSetterMethods() {
-        return Stream.of(beanClass.getDeclaredMethods())
-            .filter(m -> m.getName().startsWith("set") && !m.getName().equals("set") && m.getParameterCount() > 0 && m.
-            getReturnType().equals(Void.TYPE))
-            .collect(Collectors.toList());
-    }
-
+//    public List<Method> getGetterMethods() {
+//        return Stream.of(beanClass.getDeclaredMethods())
+//            .filter(m -> isGetter(m))
+//            .collect(Collectors.toList());
+//    }
+//    public List<Method> getSetterMethods() {
+//        return Stream.of(beanClass.getDeclaredMethods())
+//                .filter(m -> m.getName().startsWith("set") && !m.getName().equals("set") && m.getParameterCount() > 0 && m.
+//                getReturnType().equals(Void.TYPE))
+//                .collect(Collectors.toList());
+//    }
     private boolean isGetter(Method m) {
         boolean result;
 
@@ -76,7 +72,7 @@ public class BeanReflector<T> {
         result = (name.startsWith(GETTER_PREFIX) && !name.equals(GETTER_PREFIX) && !returnType.equals(Void.TYPE));
         if (!result) {
             result = (name.startsWith(IS_GETTER_PREFIX) && !name.equals(IS_GETTER_PREFIX) && returnType.equals(
-                Boolean.TYPE));
+                    Boolean.TYPE));
         }
         if (result) {
             result = parameterCount == 0;

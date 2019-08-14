@@ -1,3 +1,4 @@
+
 package org.tjc.common.utils;
 
 import static org.tjc.common.utils.MemoryMetricsConverters.MemDivisor.GB;
@@ -5,15 +6,38 @@ import static org.tjc.common.utils.MemoryMetricsConverters.MemDivisor.KB;
 import static org.tjc.common.utils.MemoryMetricsConverters.MemDivisor.MB;
 import static org.tjc.common.utils.MemoryMetricsConverters.MemDivisor.TB;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  *
  * @author tjclancy
  */
 public class MemoryMetricsConverters {
-    private static final Logger log = LoggerFactory.getLogger(MemoryMetricsConverters.class);
+
+//    private static final Logger log = LoggerFactory.getLogger(MemoryMetricsConverters.class);
+    /**
+     * Found a simpilar algorithm for doing this at the following URL.
+     *
+     * @see
+     * <a href="https://programming.guide/java/formatting-byte-size-to-human-readable-format.html">Java:
+     * Formatting byte size to human readable format</a>.
+     *
+     * @param bytes
+     * @param si
+     *
+     * @return
+     */
+    public static String humanReadableByteCount(long bytes, boolean si) {
+        int unit = si ? 1000 : 1024;
+        if (bytes < unit) {
+            return bytes + " B";
+        }
+        int exp = (int) (Math.log(bytes) / Math.log(unit));
+        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
+        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
+    }
+
+    public static String humanReadableByteCount(long bytes) {
+        return humanReadableByteCount(bytes, true);
+    }
 
     public static enum MemDivisor {
         KB(1024.0D),
@@ -24,7 +48,7 @@ public class MemoryMetricsConverters {
         private final double divisor;
 
         MemDivisor(double divisor) {
-            log.debug("Constructing MemDivisor with divisor: {}", divisor);
+//            log.debug("Constructing MemDivisor with divisor: {}", divisor);
 
             this.divisor = divisor;
         }

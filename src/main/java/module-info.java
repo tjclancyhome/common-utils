@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2018 tjclancy.
+ * Copyright 2019 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,12 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.math;
 
-/**
- *
- * @author tjclancy
- */
-public interface Range {
+module org.tjc.common {
+    requires java.base;
+    requires java.management;
+    requires java.desktop;
+    requires jdk.management;
+
+    exports org.tjc.common.json;
+    exports org.tjc.common.reflect;
+    exports org.tjc.common.utils;
+
+    requires com.fasterxml.jackson.core;
+    requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.annotation;
+//    requires commons.beanutils;
+//    requires commons.logging;
+//    requires commons.collections;
+    requires org.slf4j;
 
 }

@@ -23,18 +23,16 @@
  */
 package org.tjc.common.utils;
 
+import java.text.MessageFormat;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.junit.After;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.tjc.common.utils.test.UnitTestSupport.getMethodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeMessage;
 
 /**
  *
@@ -42,17 +40,17 @@ import static org.tjc.common.utils.test.UnitTestSupport.writeMessage;
  */
 public class ChooserTest {
 
+    private static final List<String> CHOICES = List.of("Apple", "Banana", "Pear", "Peach", "Cherry");
+
     public ChooserTest() {
     }
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     @After
     public void tearDown() {
-        setShowOutput(false);
     }
 
     /**
@@ -60,7 +58,6 @@ public class ChooserTest {
      */
     @Test
     public void testChooseFromCollectionCtor() {
-        writeBanner(getMethodName());
         Set<String> choices = new HashSet<>();
         choices.add("Apple");
         choices.add("Banana");
@@ -69,22 +66,20 @@ public class ChooserTest {
         choices.add("Cherry");
 
         Chooser instance = Chooser.of(choices);
-        assertThat(instance).isNotNull();
+        assertNotNull(instance);
 
         for (int i = 0; i < 5; i++) {
-            writeMessage("choice: {0}", instance.choose());
+            MessageFormat.format("choice: {0}", instance.choose());
         }
     }
 
     @Test
     public void testChooseFromArrayCtor() {
-        writeBanner(getMethodName());
-
-        Chooser instance = Chooser.of("Apple", "Banana", "Pear", "Peach", "Cherry");
-        assertThat(instance).isNotNull();
+        Chooser instance = Chooser.of(CHOICES);
+        assertNotNull(instance);
 
         for (int i = 0; i < 5; i++) {
-            writeMessage("choice: {0}", instance.choose());
+            MessageFormat.format("choice: {0}", instance.choose());
         }
     }
 
@@ -93,39 +88,18 @@ public class ChooserTest {
      */
     @Test()
     public void testGetChoiseList() {
-        writeBanner(getMethodName());
-        Chooser instance = Chooser.of("Apple", "Banana", "Pear", "Peach", "Cherry");
-        assertThat(instance).isNotNull();
-        assertThat(instance.choose()).isIn("Apple", "Banana", "Pear", "Peach", "Cherry");
+        Chooser<String> instance = Chooser.of(CHOICES);
+        assertNotNull(instance);
+        String choice = instance.choose();
+        assertTrue(CHOICES.contains(choice));
     }
 
-//    /**
-//     * Test of testGetChoiceListAndAddShouldThrowUnsupportedOperationException method, of class Chooser.
-//     */
-//    @Test(expected = UnsupportedOperationException.class)
-//    public void testGetChoiceListAndAddShouldThrowUnsupportedOperationException() {
-//        writeBanner(getMethodName());
-//
-//        Chooser instance = Chooser.of("Apple", "Banana", "Pear", "Peach", "Cherry");
-//        assertThat(instance).isNotNull();
-//
-//        try {
-//            instance.getChoiceList().add("hello");
-//        } catch (Exception e) {
-//            if (!(e instanceof UnsupportedOperationException)) {
-//                fail("Expected that call to List.add() would throw UnsupportedOperationException.");
-//            } else {
-//                throw e;
-//            }
-//        }
-//    }
     /**
      * Test of choose method, of class Chooser.
      */
     @Ignore
     @Test
     public void testChoose() {
-        writeBanner(getMethodName());
     }
 
     /**
@@ -134,7 +108,6 @@ public class ChooserTest {
     @Ignore
     @Test
     public void testOf_Collection() {
-        writeBanner(getMethodName());
     }
 
     /**
@@ -143,7 +116,6 @@ public class ChooserTest {
     @Ignore
     @Test
     public void testOf_GenericType() {
-        writeBanner(getMethodName());
     }
 
     /**
@@ -152,7 +124,6 @@ public class ChooserTest {
     @Ignore
     @Test
     public void testWith_Collection() {
-        writeBanner(getMethodName());
     }
 
     /**
@@ -161,7 +132,6 @@ public class ChooserTest {
     @Ignore
     @Test
     public void testWith_GenericType() {
-        writeBanner(getMethodName());
     }
 
 }

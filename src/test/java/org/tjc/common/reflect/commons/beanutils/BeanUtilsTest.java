@@ -23,11 +23,8 @@
  */
 package org.tjc.common.reflect.commons.beanutils;
 
-import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
-import java.util.stream.Stream;
-import org.apache.commons.beanutils.PropertyUtils;
 import org.junit.Test;
 
 /**
@@ -41,13 +38,12 @@ public class BeanUtilsTest {
 
         Employee employee = createEmployee();
 
-        Object prop = PropertyUtils.getSimpleProperty(employee, "firstName");
-        System.out.println(prop);
-        PropertyDescriptor[] descriptors = PropertyUtils.getPropertyDescriptors(employee);
-        Stream.of(descriptors).forEach(d -> System.out.println(d.getReadMethod()));
-        System.out.println();
-        Stream.of(descriptors).forEach(d -> System.out.println(d.getWriteMethod()));
-
+//        Object prop = PropertyUtils.getSimpleProperty(employee, "firstName");
+//        System.out.println(prop);
+//        PropertyDescriptor[] descriptors = PropertyUtils.getPropertyDescriptors(employee);
+//        Stream.of(descriptors).forEach(d -> System.out.println(d.getReadMethod()));
+//        System.out.println();
+//        Stream.of(descriptors).forEach(d -> System.out.println(d.getWriteMethod()));
     }
 
     public Employee createEmployee() {
@@ -58,14 +54,14 @@ public class BeanUtilsTest {
 
         Address address = new Address("273 Deerfield Drive", "Canonsburg", "PA", "15317");
         Employee employee = new Employee(
-            "Thomas",
-            "Clancy",
-            "Joseph",
-            birthDate.getTime(),
-            address,
-            50,
-            hireDate.getTime(),
-            "111-11-1111");
+                "Thomas",
+                "Clancy",
+                "Joseph",
+                birthDate.getTime(),
+                address,
+                50,
+                hireDate.getTime(),
+                "111-11-1111");
 
         return employee;
     }

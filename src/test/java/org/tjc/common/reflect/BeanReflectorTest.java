@@ -23,14 +23,9 @@
  */
 package org.tjc.common.reflect;
 
-import org.apache.commons.beanutils.ConvertUtils;
+//import org.apache.commons.beanutils.ConvertUtils;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import static org.tjc.common.utils.test.UnitTestSupport.getMethodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
 
 /**
  *
@@ -43,15 +38,12 @@ public class BeanReflectorTest {
     public BeanReflectorTest() {
     }
 
-    @Before
-    public void setUp() {
-        setShowOutput(true);
-        c = ConvertUtils.class;
-    }
-
+//    @Before
+//    public void setUp() {
+//        c = ConvertUtils.class;
+//    }
     @After
     public void tearDown() {
-        setShowOutput(false);
     }
 
     /**
@@ -59,35 +51,28 @@ public class BeanReflectorTest {
      */
     @Test
     public void testGetBeanClass() {
-        writeBanner(getMethodName());
         BeanReflector br = new BeanReflector(c);
-        writeln(br.getBeanClass());
-        writeln();
+        System.out.println(br.getBeanClass());
 
     }
 
     /**
      * Test of getGetterMethods method, of class BeanReflector.
      */
-    @Test
-    public void testGetGetterMethods() {
-        writeBanner(getMethodName());
-
-        BeanReflector br = new BeanReflector(c);
-        br.getGetterMethods().forEach(m -> writeln(m));
-        writeln();
-    }
-
+//    @Test
+//    public void testGetGetterMethods() {
+//        BeanReflector br = new BeanReflector(c);
+//        br.getGetterMethods().forEach(m -> System.out.println(m));
+//        System.out.println();
+//    }
     /**
      * Test of getSetterMethods method, of class BeanReflector.
      */
     @Test
     public void testGetSetterMethods() {
-        writeBanner(getMethodName());
-
-        BeanReflector br = new BeanReflector(c);
-        br.getSetterMethods().forEach(m -> writeln(m));
-        writeln();
+//        BeanReflector br = new BeanReflector(c);
+//        br.getSetterMethods().forEach(m -> System.out.println(m));
+//        System.out.println();
     }
 
 }

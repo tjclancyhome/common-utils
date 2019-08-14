@@ -27,12 +27,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.tjc.common.utils.test.UnitTestSupport.getMethodName;
-import static org.tjc.common.utils.test.UnitTestSupport.methodName;
-import static org.tjc.common.utils.test.UnitTestSupport.setShowOutput;
-import static org.tjc.common.utils.test.UnitTestSupport.writeBanner;
-import static org.tjc.common.utils.test.UnitTestSupport.writeln;
-
 /**
  *
  * @author tjclancy
@@ -44,12 +38,10 @@ public class OSTest {
 
     @Before
     public void setup() {
-        setShowOutput(true);
     }
 
     @After
     public void tearDown() {
-        setShowOutput(false);
     }
 
     /**
@@ -57,7 +49,6 @@ public class OSTest {
      */
     @Test
     public void testArch() {
-        writeBanner(methodName());
         String expResult = "";
         String result = OS.arch();
     }
@@ -67,7 +58,6 @@ public class OSTest {
      */
     @Test
     public void testName() {
-        writeBanner(methodName());
         String expResult = "";
         String result = OS.name();
     }
@@ -77,7 +67,6 @@ public class OSTest {
      */
     @Test
     public void testVersion() {
-        writeBanner(methodName());
         String expResult = "";
         String result = OS.version();
     }
@@ -87,7 +76,6 @@ public class OSTest {
      */
     @Test
     public void testAvailableProcessors() {
-        writeBanner(methodName());
         int expResult = 0;
         int result = OS.availableProcessors();
     }
@@ -97,7 +85,6 @@ public class OSTest {
      */
     @Test
     public void testSystemLoadAverage() {
-        writeBanner(methodName());
         double expResult = 0.0;
         double result = OS.systemLoadAverage();
     }
@@ -107,7 +94,6 @@ public class OSTest {
      */
     @Test
     public void testCommittedVirtualMemorySize() {
-        writeBanner(methodName());
         long expResult = 0L;
         long result = OS.committedVirtualMemorySize();
     }
@@ -117,7 +103,6 @@ public class OSTest {
      */
     @Test
     public void testFreePhysicalMemorySize() {
-        writeBanner(methodName());
         long expResult = 0L;
         long result = OS.freePhysicalMemorySize();
     }
@@ -127,7 +112,6 @@ public class OSTest {
      */
     @Test
     public void testFreeSwapSpaceSize() {
-        writeBanner(methodName());
         long expResult = 0L;
         long result = OS.freeSwapSpaceSize();
     }
@@ -137,7 +121,6 @@ public class OSTest {
      */
     @Test
     public void testProcessCpuLoad() {
-        writeBanner(methodName());
         double expResult = 0.0;
         double result = OS.processCpuLoad();
     }
@@ -147,7 +130,6 @@ public class OSTest {
      */
     @Test
     public void testProcessCpuTime() {
-        writeBanner(methodName());
         long expResult = 0L;
         long result = OS.processCpuTime();
     }
@@ -157,7 +139,6 @@ public class OSTest {
      */
     @Test
     public void testSystemCpuLoad() {
-        writeBanner(methodName());
         double expResult = 0.0;
         double result = OS.systemCpuLoad();
     }
@@ -167,7 +148,6 @@ public class OSTest {
      */
     @Test
     public void testTotalPhysicalMemorySize() {
-        writeBanner(methodName());
         long expResult = 0L;
         long result = OS.totalPhysicalMemorySize();
     }
@@ -177,7 +157,6 @@ public class OSTest {
      */
     @Test
     public void testTotalSwapSpaceSize() {
-        writeBanner(methodName());
         long expResult = 0L;
         long result = OS.totalSwapSpaceSize();
     }
@@ -187,9 +166,7 @@ public class OSTest {
      */
     @Test
     public void testAsString() {
-        writeBanner(getMethodName());
-
-        writeln(OS.asString());
+        System.out.println(OS.asString());
     }
 
 }
