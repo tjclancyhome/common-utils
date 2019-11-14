@@ -23,7 +23,7 @@
  */
 package org.tjc.common.utils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  *

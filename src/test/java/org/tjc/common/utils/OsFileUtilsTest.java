@@ -24,9 +24,7 @@
 package org.tjc.common.utils;
 
 import java.text.MessageFormat;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -34,20 +32,13 @@ import org.junit.Test;
  */
 public class OsFileUtilsTest {
 
-    @Before
-    public void setup() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getOpenFileCount method, of class OsFileUtils.
      */
     @Test
     public void testGetOpenFileCount() {
-        System.out.println(MessageFormat.format("Number of open files: {0}", OsFileUtils.getOpenFileCount()));
+        System.out.println(MessageFormat.format("Number of open files: {0}", OsFileUtils
+                .getOpenFileCount()));
     }
 
     /**
@@ -55,7 +46,8 @@ public class OsFileUtilsTest {
      */
     @Test
     public void testGetMaxFileCount() {
-        System.out.println(MessageFormat.format("Max number of files: {0}", OsFileUtils.getMaxFileCount()));
+        System.out.println(MessageFormat.format("Max number of files: {0}", OsFileUtils
+                .getMaxFileCount()));
     }
 
 }

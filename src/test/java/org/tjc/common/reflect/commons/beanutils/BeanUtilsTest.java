@@ -25,7 +25,7 @@ package org.tjc.common.reflect.commons.beanutils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  *

@@ -27,12 +27,10 @@ import java.text.MessageFormat;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.junit.After;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -40,17 +38,10 @@ import org.junit.Test;
  */
 public class ChooserTest {
 
-    private static final List<String> CHOICES = List.of("Apple", "Banana", "Pear", "Peach", "Cherry");
+    private static final List<String> CHOICES = List
+            .of("Apple", "Banana", "Pear", "Peach", "Cherry");
 
     public ChooserTest() {
-    }
-
-    @Before
-    public void setup() {
-    }
-
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -97,7 +88,7 @@ public class ChooserTest {
     /**
      * Test of choose method, of class Chooser.
      */
-    @Ignore
+    @Disabled("Implement this method later.")
     @Test
     public void testChoose() {
     }
@@ -105,7 +96,7 @@ public class ChooserTest {
     /**
      * Test of of method, of class Chooser.
      */
-    @Ignore
+    @Disabled("Implement this method later.")
     @Test
     public void testOf_Collection() {
     }
@@ -113,7 +104,7 @@ public class ChooserTest {
     /**
      * Test of of method, of class Chooser.
      */
-    @Ignore
+    @Disabled("Implement this method later.")
     @Test
     public void testOf_GenericType() {
     }
@@ -121,7 +112,7 @@ public class ChooserTest {
     /**
      * Test of with method, of class Chooser.
      */
-    @Ignore
+    @Disabled("Implement this method later.")
     @Test
     public void testWith_Collection() {
     }
@@ -129,7 +120,7 @@ public class ChooserTest {
     /**
      * Test of with method, of class Chooser.
      */
-    @Ignore
+    @Disabled("Implement this method later.")
     @Test
     public void testWith_GenericType() {
     }

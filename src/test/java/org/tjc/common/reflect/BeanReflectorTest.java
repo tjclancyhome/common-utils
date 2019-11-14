@@ -24,8 +24,7 @@
 package org.tjc.common.reflect;
 
 //import org.apache.commons.beanutils.ConvertUtils;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -34,17 +33,6 @@ import org.junit.Test;
 public class BeanReflectorTest {
 
     private Class<?> c;
-
-    public BeanReflectorTest() {
-    }
-
-//    @Before
-//    public void setUp() {
-//        c = ConvertUtils.class;
-//    }
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of getBeanClass method, of class BeanReflector.
@@ -56,23 +44,8 @@ public class BeanReflectorTest {
 
     }
 
-    /**
-     * Test of getGetterMethods method, of class BeanReflector.
-     */
-//    @Test
-//    public void testGetGetterMethods() {
-//        BeanReflector br = new BeanReflector(c);
-//        br.getGetterMethods().forEach(m -> System.out.println(m));
-//        System.out.println();
-//    }
-    /**
-     * Test of getSetterMethods method, of class BeanReflector.
-     */
     @Test
     public void testGetSetterMethods() {
-//        BeanReflector br = new BeanReflector(c);
-//        br.getSetterMethods().forEach(m -> System.out.println(m));
-//        System.out.println();
     }
 
 }

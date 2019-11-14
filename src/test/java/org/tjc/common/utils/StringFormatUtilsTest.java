@@ -24,10 +24,8 @@
 package org.tjc.common.utils;
 
 import java.text.MessageFormat;
-import org.junit.After;
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import static org.tjc.common.utils.StringFormatUtils.trueOrFalse;
 import static org.tjc.common.utils.StringFormatUtils.yesOrNo;
 
@@ -36,14 +34,6 @@ import static org.tjc.common.utils.StringFormatUtils.yesOrNo;
  * @author tjclancy
  */
 public class StringFormatUtilsTest {
-
-    @Before
-    public void setup() {
-    }
-
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of yesOrNo method, of class StringFormatUtils.

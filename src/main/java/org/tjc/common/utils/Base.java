@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2018 tjclancy.
+ * Copyright 2019 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,40 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.json;
-
-import org.junit.Test;
+package org.tjc.common.utils;
 
 /**
  *
  * @author tjclancy
  */
-public class JsonFormatterTest {
+public enum Base {
+    BASE10(1000),
+    BASE2(1024);
 
-    private static final String JSON_DOC = "{\"data\": {\"authMethods\": [\"local\", \"Active Directory\"]},\"status\": 200,\"message\": null,\"isSuccessful\": true}\n";
+    private final int base;
 
-    public JsonFormatterTest() {
+    Base(int base) {
+        this.base = base;
     }
 
-    /**
-     * Test of formatJson method, of class JsonFormatter.
-     *
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testFormatJson_String() throws Exception {
-        String jsonDoc = JSON_DOC;
-        String result = JsonFormatter.formatJson(jsonDoc);
-        System.out.println(result);
+    public int getBase() {
+        return this.base;
     }
-
-    /**
-     * Test of formatJson method, of class JsonFormatter.
-     *
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testFormatJson_Object() throws Exception {
-    }
-
 }

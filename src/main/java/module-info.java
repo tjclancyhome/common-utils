@@ -27,17 +27,9 @@ module org.tjc.common {
     requires java.management;
     requires java.desktop;
     requires jdk.management;
-
-    exports org.tjc.common.json;
-    exports org.tjc.common.reflect;
-    exports org.tjc.common.utils;
-
-    requires com.fasterxml.jackson.core;
-    requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.annotation;
-//    requires commons.beanutils;
-//    requires commons.logging;
-//    requires commons.collections;
     requires org.slf4j;
+
+    exports org.tjc.common.utils;
+    exports org.tjc.common.reflect;
 
 }

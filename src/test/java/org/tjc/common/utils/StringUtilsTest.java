@@ -25,22 +25,14 @@ package org.tjc.common.utils;
 
 import static java.util.Arrays.asList;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author tjclancy
  */
 public class StringUtilsTest {
-
-    public StringUtilsTest() {
-    }
-
-    @Before
-    public void setup() {
-    }
 
     /**
      * Test of maxLength method, of class StringUtils.

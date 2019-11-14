@@ -21,29 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package org.tjc.common.utils;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author tjclancy
  */
 public class MemoryMetricsConvertersTest {
-
-    public MemoryMetricsConvertersTest() {
-    }
-
-    @Before
-    public void setup() {
-    }
-
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of humanReadableByteCount method, of class MemoryMetricsConverters.

@@ -24,7 +24,7 @@
 package org.tjc.common.net;
 
 import java.net.URLDecoder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  *
