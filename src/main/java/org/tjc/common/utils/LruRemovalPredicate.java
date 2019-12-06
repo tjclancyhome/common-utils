@@ -21,16 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.tjc.common.utils;
 
-module org.tjc.common {
-    requires java.base;
-    requires java.management;
-    requires java.desktop;
-    requires jdk.management;
-    requires org.slf4j;
-    requires ch.qos.logback.classic;
-    requires ch.qos.logback.core;
-    exports org.tjc.common.utils;
-    exports org.tjc.common.reflect;
+import java.util.Map.Entry;
+import java.util.function.BiPredicate;
+
+/**
+ * A remove eldest predicate for LruCache which subclasses LinkedHashMap.
+ *
+ * @author tjclancy
+ * @param <K>
+ * @param <V>
+ */
+public abstract class LruRemovalPredicate<K, V> implements BiPredicate<LruCache<K, V>, Entry<K, V>> {
+
+    public static class AlwaysFalsePredicate<K, V> extends LruRemovalPredicate<K, V> {
+        @Override
+        public boolean test(LruCache<K, V> arg0, Entry<K, V> arg1) {
+            return false;
+        }
+    }
+
+    public static class AlwaysTruePredicate<K, V> extends LruRemovalPredicate<K, V> {
+        @Override
+        public boolean test(LruCache<K, V> arg0, Entry<K, V> arg1) {
+            return true;
+        }
+    }
 
 }
