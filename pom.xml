@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.tjc</groupId>
     <artifactId>common-utils</artifactId>
-    <version>1.0.1-jre12-SNAPSHOT</version>
+    <version>1.0.0-jre12-SNAPSHOT</version>
     <name>common-utils</name>
     <packaging>jar</packaging>
     <properties>
