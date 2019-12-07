@@ -42,7 +42,7 @@ public class MemoryMetricsConverters {
      * Formatting byte size to human readable format</a>.
      *
      * @param bytes The number of bytes to convert.
-     * @param si If si (base10) is true then the units equal 1000 otherwise its 1024
+     * @param si    If si (base10) is true then the units equal 1000 otherwise its 1024
      *
      * @return
      */

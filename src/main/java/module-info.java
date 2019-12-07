@@ -31,6 +31,7 @@ module org.tjc.common {
     requires ch.qos.logback.classic;
     requires ch.qos.logback.core;
     exports org.tjc.common.utils;
+    exports org.tjc.common.utils.config;
     exports org.tjc.common.reflect;
 
 }

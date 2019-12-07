@@ -25,7 +25,6 @@ package org.tjc.common.utils;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
-
 import static org.tjc.common.utils.MemoryMetricsConverters.toMostRelevantString;
 
 /**
@@ -92,30 +91,30 @@ public final class OS {
         StringBuilder stringBulder = new StringBuilder();
 
         stringBulder
-            .append("OS Management Stats:").append("\n")
-            .append("============= ======").append("\n")
-            .append("Architecture       : ").append(arch()).append("\n")
-            .append("Name               : ").append(name()).append("\n")
-            .append("Version            : ").append(version()).append("\n")
-            .append("Processors         : ").append(availableProcessors()).append("\n\n")
-            .append("  Load Stats:").append("\n")
-            .append("  - ---------").append("\n")
-            .append("  System Load Average: ").append(systemLoadAverage()).append("\n")
-            .append("  Process CPU Load   : ").append(processCpuLoad()).append("\n")
-            .append("  Process CPU Time   : ").append(processCpuTime()).append("\n")
-            .append("  System CPU Load    : ").append(systemCpuLoad()).append("\n\n")
-            .append("  Memory Stats:").append("\n")
-            .append("  -------------").append("\n")
-            .append("  Committed Virtual Memory Size: ").append(
-            toMostRelevantString(committedVirtualMemorySize())).append("\n")
-            .append("  Free Physical Memory Size    : ").append(
-            toMostRelevantString(freePhysicalMemorySize())).append("\n")
-            .append("  Free Swap Space Size         : ").append(
-            toMostRelevantString(freeSwapSpaceSize())).append("\n")
-            .append("  Total Physical Memory Size   : ").append(
-            toMostRelevantString(totalPhysicalMemorySize())).append("\n")
-            .append("  Total Swap Space Size        : ").append(
-            toMostRelevantString(committedVirtualMemorySize())).append("\n");
+                .append("OS Management Stats:").append("\n")
+                .append("============= ======").append("\n")
+                .append("Architecture       : ").append(arch()).append("\n")
+                .append("Name               : ").append(name()).append("\n")
+                .append("Version            : ").append(version()).append("\n")
+                .append("Processors         : ").append(availableProcessors()).append("\n\n")
+                .append("  Load Stats:").append("\n")
+                .append("  - ---------").append("\n")
+                .append("  System Load Average: ").append(systemLoadAverage()).append("\n")
+                .append("  Process CPU Load   : ").append(processCpuLoad()).append("\n")
+                .append("  Process CPU Time   : ").append(processCpuTime()).append("\n")
+                .append("  System CPU Load    : ").append(systemCpuLoad()).append("\n\n")
+                .append("  Memory Stats:").append("\n")
+                .append("  -------------").append("\n")
+                .append("  Committed Virtual Memory Size: ").append(
+                toMostRelevantString(committedVirtualMemorySize())).append("\n")
+                .append("  Free Physical Memory Size    : ").append(
+                toMostRelevantString(freePhysicalMemorySize())).append("\n")
+                .append("  Free Swap Space Size         : ").append(
+                toMostRelevantString(freeSwapSpaceSize())).append("\n")
+                .append("  Total Physical Memory Size   : ").append(
+                toMostRelevantString(totalPhysicalMemorySize())).append("\n")
+                .append("  Total Swap Space Size        : ").append(
+                toMostRelevantString(committedVirtualMemorySize())).append("\n");
 
         return stringBulder.toString();
     }

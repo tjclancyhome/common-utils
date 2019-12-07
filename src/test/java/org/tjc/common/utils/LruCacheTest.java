@@ -74,7 +74,7 @@ public class LruCacheTest {
         log.trace("### entered testRemoveEldestEntryWhenCapacityIsFull()");
 
         RemoveWhenCapacityIsFull<UUID, String> removalPredicate = new RemoveWhenCapacityIsFull<>(
-            10);
+                10);
 
         UUID uuid = UUID.randomUUID();
 

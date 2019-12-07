@@ -69,10 +69,12 @@ public class BeanReflector<T> {
         Class<?> returnType = m.getReturnType();
         int parameterCount = m.getParameterCount();
 
-        result = (name.startsWith(GETTER_PREFIX) && !name.equals(GETTER_PREFIX) && !returnType.equals(Void.TYPE));
+        result = (name.startsWith(GETTER_PREFIX) && !name.equals(GETTER_PREFIX) && !returnType
+                .equals(Void.TYPE));
         if (!result) {
-            result = (name.startsWith(IS_GETTER_PREFIX) && !name.equals(IS_GETTER_PREFIX) && returnType.equals(
-                    Boolean.TYPE));
+            result = (name.startsWith(IS_GETTER_PREFIX) && !name.equals(IS_GETTER_PREFIX) && returnType
+                    .equals(
+                            Boolean.TYPE));
         }
         if (result) {
             result = parameterCount == 0;

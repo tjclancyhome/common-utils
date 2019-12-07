@@ -24,6 +24,7 @@
 package org.tjc.common.reflect.commons.beanutils;
 
 import java.util.Date;
+import org.tjc.common.reflect.commons.beanutils.Address;
 
 /**
  *
@@ -47,8 +48,9 @@ public class Employee {
         this.bar = false;
     }
 
-    public Employee(String firstName, String lastName, String middleName, Date birthday, Address homeAddress, int currentAge,
-        Date hireDate, String ssn) {
+    public Employee(String firstName, String lastName, String middleName, Date birthday,
+            Address homeAddress, int currentAge,
+            Date hireDate, String ssn) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
