@@ -65,3 +65,5 @@ dist/
 .resourceCache/
 .sts4-cache/
 jshell.history
+.factorypath
+
