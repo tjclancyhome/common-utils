@@ -23,30 +23,18 @@
  */
 package org.tjc.common.utils.config;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.URL;
 import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
+import org.tjc.common.BaseTest;
 
 /**
  *
  * @author tjclancy
  */
-public class ConfigTest {
+public class ConfigTest extends BaseTest {
 
     public ConfigTest() {
-    }
-
-    @BeforeEach
-    public void setUp() {
     }
 
     @AfterEach
@@ -54,339 +42,115 @@ public class ConfigTest {
         System.out.println();
     }
 
+
     /**
-     * Test of load method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getProperty method, of class Config.
      */
     @Test
-    public void testLoad() throws IOException {
-        System.out.println("testLoad");
-        System.out.println("========");
-        URL propsUrl = getAppProperties();
-        assertNotNull(propsUrl);
-        Config instance = new Config();
-        assertNotNull(instance);
-        instance.load(propsUrl);
-        int expected = 2;
-        assertEquals(expected, instance.size());
-        instance.print();
+    public void testGetProperty_String() {
+        printBanner("testGetProperty_String()");
+
+        Config mockedConfig = mock(Config.class);
+        when(mockedConfig.getProperty("foo.bar")).thenReturn("baz");
+
+        System.out.println("value: " + mockedConfig.getProperty("foo.bar"));
+        System.out.println("value: " + mockedConfig.getProperty("bar.baz"));
     }
 
     /**
-     * Test of print method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getStringProperty method, of class Config.
      */
     @Test
-    public void testPrint_0args() throws IOException {
-        System.out.println("testPrint_0args");
-        System.out.println("===============");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        instance.print();
+    public void testGetStringProperty_String() {
+        printBanner("testGetStringProperty_String()");
+
+        Config mockedConfig = mock(Config.class);
+        when(mockedConfig.getStringProperty("foo.bar")).thenReturn("baz");
+
+        System.out.println("value: " + mockedConfig.getStringProperty("foo.bar"));
+        System.out.println("value: " + mockedConfig.getStringProperty("bar.baz"));
     }
 
     /**
-     * Test of print method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getIntProperty method, of class Config.
      */
     @Test
-    public void testPrint_PrintStream() throws IOException {
-        System.out.println("testPrint_PrintStream");
-        System.out.println("=====================");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        instance.print(System.out);
+    public void testGetIntProperty_String() {
+        printBanner("testGetIntProperty_String()");
+
+        Config mockedConfig = mock(Config.class);
+        when(mockedConfig.getIntProperty("foo.bar")).thenReturn(42);
+
+        System.out.println("value: " + mockedConfig.getIntProperty("foo.bar"));
+        System.out.println("value: " + mockedConfig.getIntProperty("bar.baz"));
     }
 
     /**
-     * Test of print method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getFloatProperty method, of class Config.
      */
     @Test
-    public void testPrint_PrintWriter() throws IOException {
-        System.out.println("testPrint_PrintWriter");
-        System.out.println("=====================");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        PrintWriter printWriter = new PrintWriter(System.out);
-        instance.print(printWriter);
+    public void testGetFloatProperty_String() {
+        printBanner("testGetFloatProperty_String()");
+
+        Config mockedConfig = mock(Config.class);
+        when(mockedConfig.getFloatProperty("foo.bar")).thenReturn(42.0f);
+
+        System.out.println("value: " + mockedConfig.getFloatProperty("foo.bar"));
+        System.out.println("value: " + mockedConfig.getFloatProperty("bar.baz"));
+    }
+
+    /**
+     * Test of getDoubleProperty method, of class Config.
+     */
+    @Test
+    public void testGetDoubleProperty_String() {
+        printBanner("testGetDoubleProperty_String()");
+
+        Config mockedConfig = mock(Config.class);
+        when(mockedConfig.getDoubleProperty("foo.bar")).thenReturn(42.0d);
+
+        System.out.println("value: " + mockedConfig.getDoubleProperty("foo.bar"));
+        System.out.println("value: " + mockedConfig.getDoubleProperty("bar.baz"));
     }
 
     /**
      * Test of getProperty method, of class Config.
-     *
-     * @throws java.io.IOException
      */
     @Test
-    public void testGetProperty_String() throws IOException {
-        System.out.println("testGetProperty_String");
-        System.out.println("======================");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        String value = instance.getProperty("foo.bar");
-        String expected = "hello!";
-        assertEquals(expected, value);
+    public void testGetProperty_String_Object() {
+        printBanner("testGetProperty_String_Object()");
     }
 
     /**
-     * Test of getProperty method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getStringProperty method, of class Config.
      */
     @Test
-    public void testGetProperty_String_String() throws IOException {
-        System.out.println("testGetProperty_String_String");
-        System.out.println("=============================");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        String expected = "using default";
-        String value = instance.getProperty("foo.foo", expected);
-        assertEquals(expected, value);
+    public void testGetStringProperty_String_String() {
+        printBanner("testGetStringProperty_String_String()");
     }
 
     /**
-     * Test of size method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getIntProperty method, of class Config.
      */
     @Test
-    public void testSize() throws IOException {
-        System.out.println("testSize");
-        System.out.println("========");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        int expected = 2;
-        int size = instance.size();
-        assertEquals(expected, size);
+    public void testGetIntProperty_String_int() {
+        printBanner("testGetIntProperty_String_int()");
     }
 
     /**
-     * Test of isEmpty method, of class Config.
+     * Test of getFloatProperty method, of class Config.
      */
     @Test
-    public void testIsEmpty() {
-        System.out.println("testIsEmpty");
-        System.out.println("===========");
-        Config instance = new Config();
-        boolean expected = true;
-        boolean empty = instance.isEmpty();
-        assertEquals(expected, empty);
+    public void testGetFloatProperty_String_float() {
+        printBanner("testGetFloatProperty_String_float()");
     }
 
     /**
-     * Test of containsValue method, of class Config.
-     *
-     * @throws java.io.IOException
+     * Test of getDoubleProperty method, of class Config.
      */
     @Test
-    public void testContainsValue() throws IOException {
-        System.out.println("testContainsValue");
-        System.out.println("=================");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        boolean expected = true;
-        boolean value = instance.containsValue("hello!");
-        assertEquals(expected, value);
-    }
-
-    /**
-     * Test of containsKey method, of class Config.
-     *
-     * @throws java.io.IOException
-     */
-    @Test
-    public void testContainsKey() throws IOException {
-        System.out.println("testContainsKey");
-        System.out.println("===============");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        boolean expected = true;
-        boolean value = instance.containsKey("foo.bar");
-        assertEquals(expected, value);
-    }
-
-    /**
-     * Test of forEach method, of class Config.
-     */
-    @Test
-    public void testForEach() {
-        System.out.println("testForEach");
-        System.out.println("===========");
-    }
-
-
-    /**
-     * Test of load method, of class Config.
-     *
-     * @throws java.io.IOException
-     */
-    @Test
-    public void testLoad_URL() throws IOException {
-        System.out.println("testLoad_URL");
-        System.out.println("============");
-        var instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        instance.load(System.getProperties());
-        assertTrue(instance.containsKey("foo.bar"));
-        assertTrue(instance.containsKey("user.name"));
-    }
-
-    /**
-     * Test of load method, of class Config.
-     *
-     * @throws java.io.IOException
-     */
-    @Test
-    public void testLoad_InputStream() throws IOException {
-        System.out.println("testLoad_InputStream");
-        System.out.println("====================");
-        var instance = new Config();
-        assertNotNull(instance);
-        URL url = getAppProperties();
-        assertNotNull(url);
-        try( InputStream in = url.openStream()) {
-            instance.load(in);
-        }
-    }
-
-    /**
-     * Test of store method, of class Config.
-     *
-     * @throws java.io.IOException
-     */
-    @Test
-    public void testStore() throws IOException {
-        System.out.println("testStore");
-        System.out.println("=========");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        try( OutputStream out = new FileOutputStream("target/application.properties")) {
-            instance.store(out, "a comment.");
-        }
-    }
-
-    /**
-     * Test of storeToXML method, of class Config.
-     *
-     * @throws java.io.IOException
-     */
-    @Test
-    public void testStoreToXML() throws IOException {
-        System.out.println("testStoreToXML");
-        System.out.println("==============");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        try( OutputStream out = new FileOutputStream("target/application.properties.xml")) {
-            instance.storeToXML(out, "A comment.");
-        }
-    }
-
-    /**
-     * Test of stringPropertyNames method, of class Config.
-     *
-     * @throws java.io.IOException
-     */
-    @Test
-    public void testStringPropertyNames() throws IOException {
-        System.out.println("testStringPropertyNames");
-        System.out.println("=======================");
-        Config instance = new Config(getAppProperties());
-        assertNotNull(instance);
-        instance.stringPropertyNames().forEach(System.out::println);
-    }
-
-    /**
-     * Test of put method, of class Config.
-     */
-    @Test
-    public void testPut() {
-        System.out.println("testPut");
-        System.out.println("=======");
-        Config instance = Config.newInstance();
-        instance.put("foo.bar", "goodbye!");
-        int expected = 1;
-        assertEquals(expected, instance.size());
-        assertTrue(instance.containsKey("foo.bar"));
-        String value = instance.getProperty("foo.bar");
-        String expectedStr = "goodbye!";
-        assertEquals(expectedStr, value);
-    }
-
-    /**
-     * Test of putAll method, of class Config.
-     */
-    @Test
-    public void testPutAll() {
-        System.out.println("testPutAll");
-        System.out.println("==========");
-    }
-
-    /**
-     * Test of replaceAll method, of class Config.
-     */
-    @Test
-    public void testReplaceAll() {
-        System.out.println("testReplaceAll");
-        System.out.println("==============");
-    }
-
-    /**
-     * Test of remove method, of class Config.
-     */
-    @Test
-    public void testRemove_Object() {
-        System.out.println("testRemove_Object");
-        System.out.println("=================");
-    }
-
-    /**
-     * Test of remove method, of class Config.
-     */
-    @Test
-    public void testRemove_Object_Object() {
-        System.out.println("testRemove_Object_Object");
-        System.out.println("========================");
-    }
-
-
-    /**
-     * Test of newInstance method, of class Config.
-     */
-    @Test
-    public void testNewInstance_0args() {
-        System.out.println("testNewInstance_0args");
-        System.out.println("=====================");
-    }
-
-    /**
-     * Test of newInstance method, of class Config.
-     */
-    @Test
-    public void testNewInstance_URL() throws Exception {
-        System.out.println("testNewInstance_URL");
-        System.out.println("===================");
-    }
-
-    /**
-     * Test of newInstance method, of class Config.
-     */
-    @Test
-    public void testNewInstance_Properties() throws Exception {
-        System.out.println("testNewInstance_Properties");
-        System.out.println("==========================");
-    }
-
-    /**
-     * Test of load method, of class Config.
-     */
-    @Test
-    public void testLoad_Properties() throws Exception {
-        System.out.println("testLoad_Properties");
-        System.out.println("===================");
+    public void testGetDoubleProperty_String_double() {
+        printBanner("testGetDoubleProperty_String_double()");
     }
 
     /**
@@ -394,12 +158,54 @@ public class ConfigTest {
      */
     @Test
     public void testPutProperty() {
-        System.out.println("testPutProperty");
-        System.out.println("===============");
+        printBanner("testPutProperty()");
     }
 
-    private URL getAppProperties() {
-        return getClass().getResource("/application.properties");
+    /**
+     * Test of removeProperty method, of class Config.
+     */
+    @Test
+    public void testRemoveProperty() {
+        printBanner("testRemoveProperty()");
     }
 
+    /**
+     * Test of containsProperty method, of class Config.
+     */
+    @Test
+    public void testContainsProperty() {
+        printBanner("testContainsProperty()");
+    }
+
+    /**
+     * Test of getPropertyNames method, of class Config.
+     */
+    @Test
+    public void testGetPropertyNames() {
+        printBanner("testGetPropertyNames()");
+    }
+
+    /**
+     * Test of size method, of class Config.
+     */
+    @Test
+    public void testSize() {
+        printBanner("testSize()");
+    }
+
+    /**
+     * Test of isEmpty method, of class Config.
+     */
+    @Test
+    public void testIsEmpty() {
+        printBanner("testIsEmpty()");
+    }
+
+    /**
+     * Test of forEach method, of class Config.
+     */
+    @Test
+    public void testForEach() {
+        printBanner("testForEach()");
+    }
 }

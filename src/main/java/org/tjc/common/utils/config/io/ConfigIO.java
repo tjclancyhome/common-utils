@@ -21,18 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.tjc.common.utils.config.io;
 
-module org.tjc.common.utils {
-    requires java.base;
-    requires java.management;
-    requires java.desktop;
-    requires jdk.management;
-    requires org.slf4j;
-    requires ch.qos.logback.classic;
-    requires ch.qos.logback.core;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import org.tjc.common.utils.config.Config;
 
-    exports org.tjc.common.reflect;
-    exports org.tjc.common.utils;
-    exports org.tjc.common.utils.config;
-    exports org.tjc.common.utils.config.io;
+/**
+ *
+ * @author tjclancy
+ */
+public class ConfigIO {
+
+    public static void print(Config config) {
+        config.forEach((var k, var v) -> System.out.printf("%s: %s\n", k, v));
+    }
+
+    public static void print(PrintStream out, Config config) {
+        config.forEach((var k, var v) -> out.printf("%s: %s\n", k, v));
+    }
+
+    public static void print(PrintWriter out, Config config) {
+        config.forEach((k, v) -> out.printf("%s: %s\n", k, v));
+        out.flush();
+    }
+
+    protected ConfigIO() {
+    }
 }

@@ -21,18 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.tjc.common.utils.config;
 
-module org.tjc.common.utils {
-    requires java.base;
-    requires java.management;
-    requires java.desktop;
-    requires jdk.management;
-    requires org.slf4j;
-    requires ch.qos.logback.classic;
-    requires ch.qos.logback.core;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import org.tjc.common.BaseTest;
 
-    exports org.tjc.common.reflect;
-    exports org.tjc.common.utils;
-    exports org.tjc.common.utils.config;
-    exports org.tjc.common.utils.config.io;
+/**
+ *
+ * @author tjclancy
+ */
+public class PropertiesConfigLoaderTest extends BaseTest {
+
+    public PropertiesConfigLoaderTest() {
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.out.println();
+    }
+
+    /**
+     * Test of loadConfiguration method, of class PropertiesConfigLoader.
+     *
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testLoadConfiguration() throws Exception {
+        printBanner("testLoadConfiguration()");
+    }
+
 }

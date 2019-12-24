@@ -21,18 +21,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.tjc.common;
 
-module org.tjc.common.utils {
-    requires java.base;
-    requires java.management;
-    requires java.desktop;
-    requires jdk.management;
-    requires org.slf4j;
-    requires ch.qos.logback.classic;
-    requires ch.qos.logback.core;
+import java.util.Arrays;
+import java.util.Objects;
 
-    exports org.tjc.common.reflect;
-    exports org.tjc.common.utils;
-    exports org.tjc.common.utils.config;
-    exports org.tjc.common.utils.config.io;
+/**
+ *
+ * @author tjclancy
+ */
+public class BaseTest {
+
+    /**
+     * I don't really like my implementation, but it works.
+     *
+     * @param message The message to include in the banner.
+     *
+     *
+     * @return A String containing the banner which looks something like this:
+     *
+     * <pre>
+     * =========
+     * a message
+     * =========
+     * </pre>
+     *
+     */
+    public String createBanner(String message) {
+        Objects.requireNonNull(message, () -> "The 'message' argument is null.");
+
+        char[] top = new char[message.length()];
+        Arrays.fill(top, '=');
+        String frame = String.valueOf(top);
+        return String.join("\n", frame, message, frame);
+    }
+
+    /**
+     * Creates a banner and then prints the banner string to stdout.
+     *
+     * @param message The message to include in the banner.
+     */
+    public void printBanner(String message) {
+        System.out.println(createBanner(message));
+    }
+
 }

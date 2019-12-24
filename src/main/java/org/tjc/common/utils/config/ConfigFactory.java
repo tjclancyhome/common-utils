@@ -21,18 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.tjc.common.utils.config;
 
-module org.tjc.common.utils {
-    requires java.base;
-    requires java.management;
-    requires java.desktop;
-    requires jdk.management;
-    requires org.slf4j;
-    requires ch.qos.logback.classic;
-    requires ch.qos.logback.core;
+import java.util.Objects;
 
-    exports org.tjc.common.reflect;
-    exports org.tjc.common.utils;
-    exports org.tjc.common.utils.config;
-    exports org.tjc.common.utils.config.io;
+/**
+ *
+ * @author tjclancy
+ */
+public class ConfigFactory {
+    private ConfigFactory() {
+    }
+
+    /**
+     * Create a new Config instance using the supplied ConfigLoader.
+     *
+     * @param loader
+     *
+     * @return
+     *
+     * @throws Exception
+     */
+    public static ConfigImpl newConfig(final ConfigLoader loader) throws Exception {
+        Objects.requireNonNull(loader, () -> "The 'loader' argument is null.");
+        ConfigImpl config = ConfigImpl.newInstance();
+        loader.loadConfiguration(config);
+        return config;
+    }
 }
