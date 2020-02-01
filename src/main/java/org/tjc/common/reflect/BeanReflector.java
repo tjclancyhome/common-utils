@@ -23,7 +23,13 @@
  */
 package org.tjc.common.reflect;
 
+import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
+import java.beans.MethodDescriptor;
+import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
+import static java.util.Arrays.asList;
 import java.util.List;
 
 /**
@@ -35,7 +41,6 @@ public class BeanReflector<T> {
 
     private static final String GETTER_PREFIX = "get";
     private static final String IS_GETTER_PREFIX = "is";
-    private static final String SETTER_PREFIX = "set";
 
     private final Class<T> beanClass;
 
@@ -45,6 +50,22 @@ public class BeanReflector<T> {
 
     public Class<T> getBeanClass() {
         return beanClass;
+    }
+
+    public void introspect() throws IntrospectionException {
+        BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
+        System.out.printf("### beanDescriptor      : %s%n", beanInfo.getBeanDescriptor());
+        System.out.printf("### defaultEventIndex   : %s%n", beanInfo.getDefaultEventIndex());
+        System.out.printf("### defaultPropertyIndex: %s%n", beanInfo.getDefaultPropertyIndex());
+        System.out.printf("### eventSetDescriptors : %s%n", asList(beanInfo.getEventSetDescriptors()));
+        List<MethodDescriptor> mds = asList(beanInfo.getMethodDescriptors());
+        System.out.printf("### methodDescriptors   :%n");
+        mds.forEach(md -> System.out.println("###   " + md.getName()));
+        List<PropertyDescriptor> pds = asList(beanInfo.getPropertyDescriptors());
+        System.out.printf("### propertyDescriptors :%n");
+        pds.forEach(pd -> System.out.println("###   " + pd.getName()));
+
+
     }
 
     public List<String> getPropertyNames() {
@@ -70,11 +91,11 @@ public class BeanReflector<T> {
         int parameterCount = m.getParameterCount();
 
         result = (name.startsWith(GETTER_PREFIX) && !name.equals(GETTER_PREFIX) && !returnType
-                .equals(Void.TYPE));
+            .equals(Void.TYPE));
         if (!result) {
             result = (name.startsWith(IS_GETTER_PREFIX) && !name.equals(IS_GETTER_PREFIX) && returnType
-                    .equals(
-                            Boolean.TYPE));
+                .equals(
+                    Boolean.TYPE));
         }
         if (result) {
             result = parameterCount == 0;

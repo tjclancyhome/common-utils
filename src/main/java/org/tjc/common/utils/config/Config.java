@@ -31,7 +31,7 @@ import java.util.function.BiConsumer;
  * @author tjclancy
  */
 public interface Config {
-    Object getProperty(String propertyName);
+    Object getObjectProperty(String propertyName);
 
     String getStringProperty(String propertyName);
 
@@ -41,7 +41,7 @@ public interface Config {
 
     Double getDoubleProperty(String propertyName);
 
-    Object getProperty(String propertyName, Object defaultValue);
+    Object getObjectProperty(String propertyName, Object defaultValue);
 
     String getStringProperty(String propertyName, String defaultValue);
 

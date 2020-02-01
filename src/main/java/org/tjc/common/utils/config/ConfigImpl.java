@@ -137,12 +137,12 @@ public class ConfigImpl implements Config {
     }
 
     @Override
-    public Object getProperty(String propertyName) {
+    public Object getObjectProperty(String propertyName) {
         return configMap.get(propertyName);
     }
 
     @Override
-    public Object getProperty(String propertyName, Object defaultValue) {
+    public Object getObjectProperty(String propertyName, Object defaultValue) {
         if (configMap.containsKey(propertyName)) {
             return configMap.get(propertyName);
         } else {
@@ -154,7 +154,6 @@ public class ConfigImpl implements Config {
     public Set<String> getPropertyNames() {
         return Collections.unmodifiableSet(configMap.keySet());
     }
-
 
     public void load(final ConfigLoader loader) throws Exception {
         loader.loadConfiguration(this);

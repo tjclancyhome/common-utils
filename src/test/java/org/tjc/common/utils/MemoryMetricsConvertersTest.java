@@ -23,23 +23,45 @@
  */
 package org.tjc.common.utils;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.tjc.common.BaseTest;
+import static org.tjc.common.unittest.UnitTestSupport.getShowOutput;
+import static org.tjc.common.unittest.UnitTestSupport.methodName;
+import static org.tjc.common.unittest.UnitTestSupport.setShowOutput;
+import static org.tjc.common.unittest.UnitTestSupport.writeBanner;
+import static org.tjc.common.unittest.UnitTestSupport.writeln;
 
 /**
  *
  * @author tjclancy
  */
-public class MemoryMetricsConvertersTest {
+public class MemoryMetricsConvertersTest extends BaseTest {
+
+    @BeforeEach
+    public void setup() {
+        pushBool(getShowOutput());
+        setShowOutput(true);
+
+    }
+
+    @AfterEach
+    public void tearDown() {
+        writeln("");
+        setShowOutput(popBool());
+    }
 
     /**
      * Test of humanReadableByteCount method, of class MemoryMetricsConverters.
      */
     @Test
     public void testHumanReadableByteCount() {
+        writeBanner(methodName());
         String converted = MemoryMetricsConverters.humanReadableByteCount(8192);
-        System.out.println("8192 bytes = " + converted);
+        writeln("8192 bytes = {0}", converted);
         converted = MemoryMetricsConverters.humanReadableByteCount(512);
-        System.out.println("512 bytes = " + converted);
+        writeln("512 bytes = {0}", converted);
     }
 
     /**
@@ -47,6 +69,7 @@ public class MemoryMetricsConvertersTest {
      */
     @Test
     public void testBytesToKB() {
+        writeBanner(methodName());
     }
 
     /**
@@ -54,6 +77,7 @@ public class MemoryMetricsConvertersTest {
      */
     @Test
     public void testBytesToMB() {
+        writeBanner(methodName());
     }
 
     /**
@@ -61,6 +85,8 @@ public class MemoryMetricsConvertersTest {
      */
     @Test
     public void testBytesToGB() {
+        writeBanner(methodName());
+
     }
 
     /**
@@ -68,6 +94,7 @@ public class MemoryMetricsConvertersTest {
      */
     @Test
     public void testBytesToTB() {
+        writeBanner(methodName());
     }
 
     /**
@@ -75,6 +102,60 @@ public class MemoryMetricsConvertersTest {
      */
     @Test
     public void testToMostRelevantString() {
+        writeBanner(methodName());
+    }
+
+    /**
+     * Test of humanReadableByteCount method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testHumanReadableByteCount_long_boolean() {
+        writeBanner(methodName());
+    }
+
+    /**
+     * Test of humanReadableByteCount method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testHumanReadableByteCount_long_Base() {
+        writeBanner(methodName());
+    }
+
+    /**
+     * Test of humanReadableByteCountSI method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testHumanReadableByteCountSI() {
+        writeBanner(methodName());
+        writeln("humanReadableByteCountSI(10270): {0}", MemoryMetricsConverters
+            .humanReadableByteCountSI(10270));
+    }
+
+    /**
+     * Test of humanReadableByteCountBin method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testHumanReadableByteCountBin() {
+        writeBanner(methodName());
+        writeln("humanReadableByteCountBin(10270): {0}", MemoryMetricsConverters.humanReadableByteCountSI(
+            10270));
+    }
+
+    /**
+     * Test of humanReadableByteCount method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testHumanReadableByteCount_long() {
+        writeBanner(methodName());
+    }
+
+    /**
+     * Test of convertToString method, of class MemoryMetricsConverters.
+     */
+    @Test
+    public void testConvertToString() {
+        writeBanner(methodName());
+        writeln(MemoryMetricsConverters.convertToString(1024000231034.0));
     }
 
 }

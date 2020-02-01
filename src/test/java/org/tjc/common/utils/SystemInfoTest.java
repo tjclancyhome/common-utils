@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2019 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,11 +35,73 @@ public class SystemInfoTest {
     }
 
     /**
+     * Test of awtToolkit method, of class SystemInfo.
+     */
+    @Test
+    public void testAwtToolkit() {
+    }
+
+    /**
      * Test of fileEncoding method, of class SystemInfo.
      */
     @Test
     public void testFileEncoding() {
-        System.out.println("fileEncoding: " + SystemInfo.fileEncoding());
+    }
+
+    /**
+     * Test of fileSeparator method, of class SystemInfo.
+     */
+    @Test
+    public void testFileSeparator() {
+    }
+
+    /**
+     * Test of javaAwtGraphicsenv method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaAwtGraphicsenv() {
+    }
+
+    /**
+     * Test of javaClassPath method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaClassPath() {
+    }
+
+    /**
+     * Test of javaClassVersion method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaClassVersion() {
+    }
+
+    /**
+     * Test of javaHome method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaHome() {
+    }
+
+    /**
+     * Test of javaIoTmpdir method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaIoTmpdir() {
+    }
+
+    /**
+     * Test of javaLibraryPath method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaLibraryPath() {
+    }
+
+    /**
+     * Test of javaRuntimeName method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaRuntimeName() {
     }
 
     /**
@@ -47,7 +109,48 @@ public class SystemInfoTest {
      */
     @Test
     public void testJavaRuntimeVersion() {
-        System.out.println("javaRuntimeVersion: " + SystemInfo.javaRuntimeVersion());
+    }
+
+    /**
+     * Test of javaSpecificationName method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaSpecificationName() {
+    }
+
+    /**
+     * Test of javaSpecificationVendor method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaSpecificationVendor() {
+    }
+
+    /**
+     * Test of javaSpecificationVersion method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaSpecificationVersion() {
+    }
+
+    /**
+     * Test of javaVendor method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVendor() {
+    }
+
+    /**
+     * Test of javaVendorUrl method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVendorUrl() {
+    }
+
+    /**
+     * Test of javaVendorUrlBug method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVendorUrlBug() {
     }
 
     /**
@@ -55,15 +158,83 @@ public class SystemInfoTest {
      */
     @Test
     public void testJavaVersion() {
-        System.out.println("javaVersion: " + SystemInfo.javaVersion());
     }
 
     /**
-     * Test of javafxVersion method, of class SystemInfo.
+     * Test of javaVersionDate method, of class SystemInfo.
      */
     @Test
-    public void testJavafxVersion() {
-        System.out.println("javafxVersion: " + SystemInfo.javafxVersion());
+    public void testJavaVersionDate() {
+    }
+
+    /**
+     * Test of javaVmCompressedOopsMode method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmCompressedOopsMode() {
+    }
+
+    /**
+     * Test of javaVmInfo method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmInfo() {
+    }
+
+    /**
+     * Test of javaVmName method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmName() {
+    }
+
+    /**
+     * Test of javaVmSpecificationName method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmSpecificationName() {
+    }
+
+    /**
+     * Test of javaVmSpecificationVendor method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmSpecificationVendor() {
+    }
+
+    /**
+     * Test of javaVmSpecificationVersion method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmSpecificationVersion() {
+    }
+
+    /**
+     * Test of javaVmVendor method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmVendor() {
+    }
+
+    /**
+     * Test of javaVmVersion method, of class SystemInfo.
+     */
+    @Test
+    public void testJavaVmVersion() {
+    }
+
+    /**
+     * Test of jdkDebug method, of class SystemInfo.
+     */
+    @Test
+    public void testJdkDebug() {
+    }
+
+    /**
+     * Test of lineSeparator method, of class SystemInfo.
+     */
+    @Test
+    public void testLineSeparator() {
     }
 
     /**
@@ -71,7 +242,6 @@ public class SystemInfoTest {
      */
     @Test
     public void testOsArch() {
-        System.out.println("osArch: " + SystemInfo.osArch());
     }
 
     /**
@@ -79,7 +249,6 @@ public class SystemInfoTest {
      */
     @Test
     public void testOsName() {
-        System.out.println("osName: " + SystemInfo.osName());
     }
 
     /**
@@ -87,23 +256,76 @@ public class SystemInfoTest {
      */
     @Test
     public void testOsVersion() {
-        System.out.println("osVersion: " + SystemInfo.osVersion());
     }
 
     /**
-     * Test of userName method, of class SystemInfo.
+     * Test of pathSeparator method, of class SystemInfo.
      */
     @Test
-    public void testUserName() {
-        System.out.println("userName: " + SystemInfo.userName());
+    public void testPathSeparator() {
     }
 
     /**
-     * Test of userHome method, of class SystemInfo.
+     * Test of sunArchDataModel method, of class SystemInfo.
      */
     @Test
-    public void testUserHome() {
-        System.out.println("userHome: " + SystemInfo.userHome());
+    public void testSunArchDataModel() {
+    }
+
+    /**
+     * Test of sunBootLibraryPath method, of class SystemInfo.
+     */
+    @Test
+    public void testSunBootLibraryPath() {
+    }
+
+    /**
+     * Test of sunCpuEndian method, of class SystemInfo.
+     */
+    @Test
+    public void testSunCpuEndian() {
+    }
+
+    /**
+     * Test of sunIoUnicodeEncoding method, of class SystemInfo.
+     */
+    @Test
+    public void testSunIoUnicodeEncoding() {
+    }
+
+    /**
+     * Test of sunJavaCommand method, of class SystemInfo.
+     */
+    @Test
+    public void testSunJavaCommand() {
+    }
+
+    /**
+     * Test of sunJavaLauncher method, of class SystemInfo.
+     */
+    @Test
+    public void testSunJavaLauncher() {
+    }
+
+    /**
+     * Test of sunJnuEncoding method, of class SystemInfo.
+     */
+    @Test
+    public void testSunJnuEncoding() {
+    }
+
+    /**
+     * Test of sunManagementCompiler method, of class SystemInfo.
+     */
+    @Test
+    public void testSunManagementCompiler() {
+    }
+
+    /**
+     * Test of userCountry method, of class SystemInfo.
+     */
+    @Test
+    public void testUserCountry() {
     }
 
     /**
@@ -111,7 +333,13 @@ public class SystemInfoTest {
      */
     @Test
     public void testUserDir() {
-        System.out.println("userDir: " + SystemInfo.userDir());
+    }
+
+    /**
+     * Test of userHome method, of class SystemInfo.
+     */
+    @Test
+    public void testUserHome() {
     }
 
     /**
@@ -119,7 +347,13 @@ public class SystemInfoTest {
      */
     @Test
     public void testUserLanguage() {
-        System.out.println("userLanguage: " + SystemInfo.userLanguage());
+    }
+
+    /**
+     * Test of userName method, of class SystemInfo.
+     */
+    @Test
+    public void testUserName() {
     }
 
 }

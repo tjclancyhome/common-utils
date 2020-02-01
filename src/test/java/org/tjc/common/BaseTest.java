@@ -25,12 +25,17 @@ package org.tjc.common;
 
 import java.util.Arrays;
 import java.util.Objects;
+import org.tjc.common.unittest.BaseUnitTest;
 
 /**
  *
  * @author tjclancy
  */
-public class BaseTest {
+public class BaseTest extends BaseUnitTest {
+
+    public BaseTest() {
+        super();
+    }
 
     /**
      * I don't really like my implementation, but it works.

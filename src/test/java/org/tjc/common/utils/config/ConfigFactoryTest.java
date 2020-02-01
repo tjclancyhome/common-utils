@@ -53,10 +53,17 @@ public class ConfigFactoryTest extends BaseTest {
         printBanner("testNewConfig()");
 
         PropertiesConfigLoader loader = new PropertiesConfigLoader(getClass().getResource(
-                "/application.properties"));
+            "/application.properties"));
         Config config = ConfigFactory.newConfig(loader);
         assertFalse(config.isEmpty());
         ConfigIO.print(config);
+    }
+
+    /**
+     * Test of newConfig method, of class ConfigFactory.
+     */
+    @Test
+    public void testNewConfig_ConfigLoader() throws Exception {
     }
 
 }

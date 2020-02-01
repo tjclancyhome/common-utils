@@ -24,8 +24,13 @@
 package org.tjc.common.utils.config;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.tjc.common.BaseTest;
+import static org.tjc.common.unittest.UnitTestSupport.getShowOutput;
+import static org.tjc.common.unittest.UnitTestSupport.methodName;
+import static org.tjc.common.unittest.UnitTestSupport.setShowOutput;
+import static org.tjc.common.unittest.UnitTestSupport.writeBanner;
 
 /**
  *
@@ -34,11 +39,20 @@ import org.tjc.common.BaseTest;
 public class ConfigImplTest extends BaseTest {
 
     public ConfigImplTest() {
+        super();
+
+    }
+
+    @BeforeEach
+    public void setup() {
+        pushBool(getShowOutput());
+        setShowOutput(true);
+
     }
 
     @AfterEach
     public void tearDown() {
-        System.out.println();
+        setShowOutput(popBool());
     }
 
     /**
@@ -46,7 +60,8 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testNewInstance() {
-        printBanner("testNewInstance()");
+        writeBanner(methodName());
+
     }
 
     /**
@@ -54,7 +69,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testContainsProperty() {
-        printBanner("testContainsProperty()");
+        writeBanner(methodName());
     }
 
     /**
@@ -62,7 +77,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetDoubleProperty_String() {
-        printBanner("testGetDoubleProperty_String()");
+        writeBanner(methodName());
     }
 
     /**
@@ -70,7 +85,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetDoubleProperty_String_double() {
-        printBanner("testGetDoubleProperty_String_double()");
+        writeBanner(methodName());
     }
 
     /**
@@ -78,7 +93,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetFloatProperty_String() {
-        printBanner("testGetFloatProperty_String()");
+        writeBanner(methodName());
     }
 
     /**
@@ -86,7 +101,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetFloatProperty_String_float() {
-        printBanner("testGetFloatProperty_String_float()");
+        writeBanner(methodName());
     }
 
     /**
@@ -94,7 +109,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetIntProperty_String() {
-        printBanner("testGetIntProperty_String()");
+        writeBanner(methodName());
     }
 
     /**
@@ -102,7 +117,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetIntProperty_String_int() {
-        printBanner("testGetIntProperty_String_int()");
+        writeBanner(methodName());
     }
 
     /**
@@ -110,7 +125,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetStringProperty_String() {
-        printBanner("testGetStringProperty_String()");
+        writeBanner(methodName());
     }
 
     /**
@@ -118,23 +133,21 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetStringProperty_String_String() {
-        printBanner("testGetStringProperty_String_String()");
+        writeBanner(methodName());
     }
 
     /**
-     * Test of getProperty method, of class ConfigImpl.
+     * Test of getObjectProperty method, of class ConfigImpl.
      */
     @Test
-    public void testGetProperty_String() {
-        printBanner("testGetProperty_String()");
+    public void testGetObjectProperty_String() {
     }
 
     /**
-     * Test of getProperty method, of class ConfigImpl.
+     * Test of getObjectProperty method, of class ConfigImpl.
      */
     @Test
-    public void testGetProperty_String_Object() {
-        printBanner("testGetProperty_String_Object()");
+    public void testGetObjectProperty_String_Object() {
     }
 
     /**
@@ -142,7 +155,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testGetPropertyNames() {
-        printBanner("testGetPropertyNames()");
+        writeBanner(methodName());
     }
 
     /**
@@ -150,7 +163,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testLoad() throws Exception {
-        printBanner("testLoad()");
+        writeBanner(methodName());
     }
 
     /**
@@ -158,7 +171,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testPutProperty() {
-        printBanner("testPutProperty()");
+        writeBanner(methodName());
     }
 
     /**
@@ -166,7 +179,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testRemoveProperty() {
-        printBanner("testRemoveProperty()");
+        writeBanner(methodName());
     }
 
     /**
@@ -174,7 +187,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testSize() {
-        printBanner("testSize()");
+        writeBanner(methodName());
     }
 
     /**
@@ -182,7 +195,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testIsEmpty() {
-        printBanner("testIsEmpty()");
+        writeBanner(methodName());
     }
 
     /**
@@ -190,7 +203,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testForEach() {
-        printBanner("testForEach()");
+        writeBanner(methodName());
     }
 
     /**
@@ -198,7 +211,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testPrint_0args() {
-        printBanner("testPrint_0args()");
+        writeBanner(methodName());
     }
 
     /**
@@ -206,7 +219,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testPrint_PrintStream() {
-        printBanner("testPrint_PrintStream()");
+        writeBanner(methodName());
     }
 
     /**
@@ -214,6 +227,7 @@ public class ConfigImplTest extends BaseTest {
      */
     @Test
     public void testPrint_PrintWriter() {
-        printBanner("testPrint_PrintWriter()");
+        writeBanner(methodName());
     }
+
 }

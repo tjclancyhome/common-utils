@@ -25,6 +25,7 @@ package org.tjc.common.reflect;
 
 //import org.apache.commons.beanutils.ConvertUtils;
 import org.junit.jupiter.api.Test;
+import org.tjc.common.utils.config.ConfigImpl;
 
 /**
  *
@@ -46,6 +47,24 @@ public class BeanReflectorTest {
 
     @Test
     public void testGetSetterMethods() {
+    }
+
+    /**
+     * Test of introspect method, of class BeanReflector.
+     *
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testIntrospect() throws Exception {
+        BeanReflector br = new BeanReflector(ConfigImpl.class);
+        br.introspect();
+    }
+
+    /**
+     * Test of getPropertyNames method, of class BeanReflector.
+     */
+    @Test
+    public void testGetPropertyNames() {
     }
 
 }

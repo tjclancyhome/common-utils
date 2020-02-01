@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2019 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,11 +28,8 @@ import static java.lang.System.getProperty;
 /**
  *
  * @author tjclancy
- * @deprecated Use SystemProps instead.
  */
-@Deprecated
-public final class SystemInfo {
-
+public class SystemProps {
     public static String awtToolkit() {
         return getProperty("awt.toolkit");
     }

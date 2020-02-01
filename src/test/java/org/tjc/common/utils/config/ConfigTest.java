@@ -23,6 +23,8 @@
  */
 package org.tjc.common.utils.config;
 
+import java.util.Set;
+import java.util.function.BiConsumer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
@@ -42,19 +44,18 @@ public class ConfigTest extends BaseTest {
         System.out.println();
     }
 
-
     /**
-     * Test of getProperty method, of class Config.
+     * Test of getObjectProperty method, of class Config.
      */
     @Test
     public void testGetProperty_String() {
         printBanner("testGetProperty_String()");
 
         Config mockedConfig = mock(Config.class);
-        when(mockedConfig.getProperty("foo.bar")).thenReturn("baz");
+        when(mockedConfig.getObjectProperty("foo.bar")).thenReturn("baz");
 
-        System.out.println("value: " + mockedConfig.getProperty("foo.bar"));
-        System.out.println("value: " + mockedConfig.getProperty("bar.baz"));
+        System.out.println("value: " + mockedConfig.getObjectProperty("foo.bar"));
+        System.out.println("value: " + mockedConfig.getObjectProperty("bar.baz"));
     }
 
     /**
@@ -114,7 +115,7 @@ public class ConfigTest extends BaseTest {
     }
 
     /**
-     * Test of getProperty method, of class Config.
+     * Test of getObjectProperty method, of class Config.
      */
     @Test
     public void testGetProperty_String_Object() {
@@ -207,5 +208,106 @@ public class ConfigTest extends BaseTest {
     @Test
     public void testForEach() {
         printBanner("testForEach()");
+    }
+
+    /**
+     * Test of getObjectProperty method, of class Config.
+     */
+    @Test
+    public void testGetObjectProperty_String() {
+    }
+
+    /**
+     * Test of getObjectProperty method, of class Config.
+     */
+    @Test
+    public void testGetObjectProperty_String_Object() {
+    }
+
+    public class ConfigImpl implements Config {
+        @Override
+        public Object getObjectProperty(String propertyName) {
+            return null;
+        }
+
+        @Override
+        public String getStringProperty(String propertyName) {
+            return "";
+        }
+
+        @Override
+        public Integer getIntProperty(String propertyName) {
+            return null;
+        }
+
+        @Override
+        public Float getFloatProperty(String propertyName) {
+            return null;
+        }
+
+        @Override
+        public Double getDoubleProperty(String propertyName) {
+            return null;
+        }
+
+        @Override
+        public Object getObjectProperty(String propertyName, Object defaultValue) {
+            return null;
+        }
+
+        @Override
+        public String getStringProperty(String propertyName, String defaultValue) {
+            return "";
+        }
+
+        @Override
+        public Integer getIntProperty(String propertyName, int defaultValue) {
+            return null;
+        }
+
+        @Override
+        public Float getFloatProperty(String propertyName, float defaultValue) {
+            return null;
+        }
+
+        @Override
+        public Double getDoubleProperty(String propertyName, double defaultValue) {
+            return null;
+        }
+
+        @Override
+        public Object putProperty(String propertyName, Object value) {
+            return null;
+        }
+
+        @Override
+        public Object removeProperty(String propertyName) {
+            return null;
+        }
+
+        @Override
+        public boolean containsProperty(String propertyName) {
+            return false;
+        }
+
+        @Override
+        public Set<String> getPropertyNames() {
+            return null;
+        }
+
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public void forEach(
+            BiConsumer<? super Object, ? super Object> action) {
+        }
     }
 }

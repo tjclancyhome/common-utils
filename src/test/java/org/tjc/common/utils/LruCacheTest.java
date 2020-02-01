@@ -25,20 +25,32 @@ package org.tjc.common.utils;
 
 import java.util.Map;
 import java.util.UUID;
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.tjc.common.unittest.UnitTestSupport.methodName;
+import static org.tjc.common.unittest.UnitTestSupport.setShowOutput;
+import static org.tjc.common.unittest.UnitTestSupport.writeBanner;
+import static org.tjc.common.unittest.UnitTestSupport.writeln;
 
 /**
  *
  * @author tjclancy
  */
 public class LruCacheTest {
-    private static final Logger log = LoggerFactory.getLogger(LruCacheTest.class);
 
     public LruCacheTest() {
-        log.trace("### LruCacheTest created.");
+    }
+
+    @BeforeEach
+    public void forEach() {
+        setShowOutput(true);
+    }
+
+    @AfterEach
+    public void afterEach() {
+        setShowOutput(false);
     }
 
     /**
@@ -46,17 +58,17 @@ public class LruCacheTest {
      */
     @Test
     public void testRemoveEldestEntry() {
-        log.trace("### entered testRemoveEldestEntry()");
+        writeBanner(methodName());
+
         LruCache cache = new LruCache();
         cache.put("Key", "Value");
         assertFalse(cache.isEmpty());
         assertTrue(cache.size() == 1);
-        log.trace("### exiting testRemoveEldestEntry()\n");
     }
 
     @Test
     public void testRemoveEldestEntryWithALwaysTruePredicate() {
-        log.trace("### entered testRemoveEldestEntryWithALwaysTruePredicate()");
+        writeBanner(methodName());
 
         LruRemovalPredicate<String, String> alwaysTrue = new LruRemovalPredicate.AlwaysTruePredicate<>();
         LruCache cache = new LruCache(alwaysTrue);
@@ -66,15 +78,14 @@ public class LruCacheTest {
         cache.put("Key", "Value");
         assertTrue(cache.isEmpty());
 
-        log.trace("### exiting testRemoveEldestEntryWithALwaysTruePredicate()\n");
     }
 
     @Test
     public void testRemoveEldestEntryWhenCapacityIsFull() {
-        log.trace("### entered testRemoveEldestEntryWhenCapacityIsFull()");
+        writeBanner(methodName());
 
-        RemoveWhenCapacityIsFull<UUID, String> removalPredicate = new RemoveWhenCapacityIsFull<>(
-                10);
+        RemoveWhenCapacityIsFull<UUID, String> removalPredicate
+            = new RemoveWhenCapacityIsFull<>(10);
 
         UUID uuid = UUID.randomUUID();
 
@@ -95,19 +106,18 @@ public class LruCacheTest {
         cache.put(UUID.randomUUID(), "ddd");
 
         assertTrue(cache.size() == 10);
-        cache.forEach((k, v) -> log.trace("{} => {}", k, v));
+        cache.forEach((k, v) -> writeln("{0} => {1}", k, v));
 
         cache.put(UUID.randomUUID(), "eee");
         assertTrue(cache.size() == 10);
         assertFalse(cache.containsValue("apple"));
-        cache.forEach((k, v) -> log.trace("{} => {}", k, v));
+        cache.forEach((k, v) -> writeln("{0} => {1}", k, v));
 
         cache.put(UUID.randomUUID(), "apple");
         assertTrue(cache.size() == 10);
         assertFalse(cache.containsValue("peach"));
-        cache.forEach((k, v) -> log.trace("{} => {}", k, v));
+        cache.forEach((k, v) -> writeln("{0} => {1}", k, v));
 
-        log.trace("### exiting testRemoveEldestEntryWhenCapacityIsFull()\n");
     }
 
     public class RemoveWhenCapacityIsFull<Integer, String> extends LruRemovalPredicate<Integer, String> {

@@ -48,4 +48,8 @@ public class ConfigFactory {
         loader.loadConfiguration(config);
         return config;
     }
+
+    public static ConfigImpl newConfig() {
+        return ConfigImpl.newInstance();
+    }
 }
