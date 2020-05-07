@@ -37,6 +37,7 @@ import java.util.List;
  * @author tjclancy
  * @param <T>
  */
+@Deprecated(forRemoval = true, since = "1.0.0-jre12-SNAPSHOT")
 public class BeanReflector<T> {
 
     private static final String GETTER_PREFIX = "get";
@@ -72,17 +73,6 @@ public class BeanReflector<T> {
         return null;
     }
 
-//    public List<Method> getGetterMethods() {
-//        return Stream.of(beanClass.getDeclaredMethods())
-//            .filter(m -> isGetter(m))
-//            .collect(Collectors.toList());
-//    }
-//    public List<Method> getSetterMethods() {
-//        return Stream.of(beanClass.getDeclaredMethods())
-//                .filter(m -> m.getName().startsWith("set") && !m.getName().equals("set") && m.getParameterCount() > 0 && m.
-//                getReturnType().equals(Void.TYPE))
-//                .collect(Collectors.toList());
-//    }
     private boolean isGetter(Method m) {
         boolean result;
 

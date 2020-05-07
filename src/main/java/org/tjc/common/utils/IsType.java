@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2018 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.reflect;
+package org.tjc.common.utils;
+
+import java.util.Objects;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author tjclancy
  */
-@Deprecated(forRemoval = true, since = "1.0.0-jre12-SNAPSHOT")
-public interface Reflector {
+public class IsType {
+    private static final Logger log = LoggerFactory.getLogger(IsType.class);
 
+    private IsType() {
+    }
+
+    public static boolean isInteger(Object obj) {
+
+        log.debug("### entered isInteger(): ob: {}", obj);
+        Objects.requireNonNull(obj, () -> "The 'obj' argument is null.");
+        log.debug("### entered isInteger(): obj: {}", obj);
+        try {
+            var intVal = Integer.valueOf(obj.toString());
+            log.debug("###     intVal: {}", intVal);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+    }
 }
