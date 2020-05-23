@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,40 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.utils;
-
-import com.sun.management.UnixOperatingSystemMXBean;
-import java.lang.management.ManagementFactory;
-import java.lang.management.OperatingSystemMXBean;
+package org.tjc.common.utils.exceptions;
 
 /**
  *
  * @author tjclancy
  */
-public final class OsFileUtils {
-
-    private OsFileUtils() {
+public class NotImplementedException extends RuntimeException {
+    public NotImplementedException() {
     }
 
-    public static long getOpenFileCount() {
-        OperatingSystemMXBean os = ManagementFactory.getOperatingSystemMXBean();
-        var osClass = os.getClass();
-
-        if (os.getClass().isInstance(UnixOperatingSystemMXBean.class)) {
-            UnixOperatingSystemMXBean uombx = (UnixOperatingSystemMXBean) os;
-            return uombx.getOpenFileDescriptorCount();
-        }
-        return -1;
+    public NotImplementedException(String message) {
+        super(message);
     }
 
-    public static long getMaxFileCount() {
-        OperatingSystemMXBean os = ManagementFactory.getOperatingSystemMXBean();
-        if (os.getClass().isInstance(UnixOperatingSystemMXBean.class)) {
-            UnixOperatingSystemMXBean uombx = (UnixOperatingSystemMXBean) os;
-            return uombx.getMaxFileDescriptorCount();
-        }
-        return -1;
+    public NotImplementedException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
+    public NotImplementedException(Throwable cause) {
+        super(cause);
+    }
+
+    public NotImplementedException(String message, Throwable cause, boolean enableSuppression,
+        boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 
 }

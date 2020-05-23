@@ -217,4 +217,13 @@ public final class SystemInfo {
         return getProperty("user.name");
     }
 
+    public static String property(String propName) {
+        return getProperty(propName);
+    }
+
+    public static boolean propertyExists(String propName) {
+        var exists = getProperty(propName);
+        return exists != null;
+    }
+
 }
