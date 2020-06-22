@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2019 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,35 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.utils.config;
-
-import java.util.Objects;
+package org.tjc.common.utils;
 
 /**
+ * Miscellaneous, uncategorized static methods.
  *
  * @author tjclancy
  */
-public class ConfigFactory {
-    private ConfigFactory() {
-    }
+public class CommonUtils {
+    private static final int ARRAY_LOCATION = 2;
 
     /**
-     * Create a new Config instance using the supplied ConfigLoader.
+     * Returns the name of the caller's method.
      *
-     * @param loader
-     *
-     * @return A config implementation.
-     *
-     * @throws Exception
+     * @return The name of the calling method.
      */
-    public static ConfigImpl newConfig(final ConfigLoader loader) throws Exception {
-        Objects.requireNonNull(loader, () -> "The 'loader' argument is null.");
-        ConfigImpl config = ConfigImpl.newInstance();
-        loader.loadConfiguration(config);
-        return config;
-    }
-
-    public static ConfigImpl newConfig() {
-        return ConfigImpl.newInstance();
+    public static String currentMethodName() {
+        final StackTraceElement[] stes = Thread.currentThread().getStackTrace();
+        StackTraceElement ste = stes[ARRAY_LOCATION];
+        return String.format("%s()", ste.getMethodName());
     }
 }

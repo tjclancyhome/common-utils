@@ -5,28 +5,28 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.tjc</groupId>
     <artifactId>common-utils</artifactId>
-    <version>1.0.0-jre12-SNAPSHOT</version>
+    <version>1.0.0-jre11-SNAPSHOT</version>
     <name>common-utils</name>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <eclipse.collections.version>9.1.0</eclipse.collections.version>
         <guava.version>29.0-jre</guava.version>
-        <junit.version>4.13-beta-3</junit.version>
         <logback.version>1.3.0-alpha4</logback.version>
         <org.hamcrest.version>2.1</org.hamcrest.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
-        <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <junit.jupiter.version>5.6.2</junit.jupiter.version>
         <mockito.version>3.2.0</mockito.version>
         <version.assertj>3.15.0</version.assertj>
         <version.plugin.maven-source>3.2.1</version.plugin.maven-source>
         <version.plugin.maven-javadoc>3.2.0</version.plugin.maven-javadoc>
         <version.plugin.maven-compiler>3.8.1</version.plugin.maven-compiler>
         <version.plugin.maven-surefire>3.0.0-M4</version.plugin.maven-surefire>
-        <version.common-unittest>1.0.0-jre12-SNAPSHOT</version.common-unittest>
+        <version.common-unittest>1.0.0-jre11-SNAPSHOT</version.common-unittest>
     </properties>
     <dependencies>
         <dependency>
@@ -42,19 +42,19 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

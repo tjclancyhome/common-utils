@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2018 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.reflect;
+package org.tjc.common.utils;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.tjc.common.unittest.BaseUnitTest;
+
+import static org.tjc.common.unittest.UnitTestSupport.methodName;
+import static org.tjc.common.unittest.UnitTestSupport.writeBanner;
+import static org.tjc.common.unittest.UnitTestSupport.writeln;
 
 /**
  *
  * @author tjclancy
  */
-@Deprecated(forRemoval = true, since = "1.0.0-jre12-SNAPSHOT")
-public interface Reflector {
+public class CommonUtilsTest extends BaseUnitTest {
+
+    public CommonUtilsTest() {
+    }
+
+    @BeforeEach
+    public void forEach() {
+        forceShowOutput();
+    }
+
+    @AfterEach
+    public void afterEach() {
+        writeln();
+        restoreShowOutput();
+    }
+
+    /**
+     * Test of currentMethodName method, of class CommonUtils.
+     */
+    @Test
+    public void testCurrentMethodName() {
+        writeBanner(methodName());
+        String currMethodName = CommonUtils.currentMethodName();
+        writeln("currMethodName: {0}", currMethodName);
+    }
 
 }
