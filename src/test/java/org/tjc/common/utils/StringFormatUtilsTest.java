@@ -24,8 +24,15 @@
 package org.tjc.common.utils;
 
 import java.text.MessageFormat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.tjc.common.unittest.BaseUnitTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.tjc.common.unittest.UnitTestSupport.methodName;
+import static org.tjc.common.unittest.UnitTestSupport.writeBanner;
+import static org.tjc.common.unittest.UnitTestSupport.writeln;
 import static org.tjc.common.utils.StringFormatUtils.trueOrFalse;
 import static org.tjc.common.utils.StringFormatUtils.yesOrNo;
 
@@ -33,13 +40,25 @@ import static org.tjc.common.utils.StringFormatUtils.yesOrNo;
  *
  * @author tjclancy
  */
-public class StringFormatUtilsTest {
+public class StringFormatUtilsTest extends BaseUnitTest {
+
+    @BeforeEach
+    public void forEach() {
+        forceShowOutput();
+    }
+
+    @AfterEach
+    public void afterEach() {
+        writeln();
+        restoreShowOutput();
+    }
 
     /**
      * Test of yesOrNo method, of class StringFormatUtils.
      */
     @Test
     public void testYesOrNo() {
+        writeBanner(methodName());
         assertEquals(yesOrNo(true), "yes");
         assertEquals(yesOrNo(false), "no");
         System.out.println(MessageFormat.format("should be 'yes': {0}", yesOrNo(true)));
@@ -51,9 +70,49 @@ public class StringFormatUtilsTest {
      */
     @Test
     public void testTrueOrFalse() {
+        writeBanner(methodName());
         assertEquals(trueOrFalse(true), "true");
         assertEquals(trueOrFalse(false), "false");
         System.out.println(MessageFormat.format("should be 'true' : {0}", trueOrFalse(true)));
         System.out.println(MessageFormat.format("should be 'false': {0}", trueOrFalse(false)));
+    }
+
+    /**
+     * Test of underline method, of class StringFormatUtils.
+     */
+    @Test
+    public void testUnderline_String() {
+        writeBanner(methodName());
+
+        String str = "This should be underlined with = characters.";
+        String underlined = StringFormatUtils.underline(str);
+        writeln("underlined:\n{0}", underlined);
+    }
+
+    /**
+     * Test of underline method, of class StringFormatUtils.
+     */
+    @Test
+    public void testUnderline_String_char() {
+        writeBanner(methodName());
+        String str = "This should be underlined with - characters.";
+        String underlined = StringFormatUtils.underline(str, '-');
+        writeln("underlined:\n{0}", underlined);
+    }
+
+    /**
+     * Test of fill method, of class StringFormatUtils.
+     */
+    @Test
+    public void testFill_String_int() {
+        writeBanner(methodName());
+    }
+
+    /**
+     * Test of fill method, of class StringFormatUtils.
+     */
+    @Test
+    public void testFill_char_int() {
+        writeBanner(methodName());
     }
 }

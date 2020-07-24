@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 tjclancy.
+ * Copyright 2020 tjclancy.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,45 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.tjc.common.utils;
-
-import java.util.Arrays;
+package org.tjc.common.utils.tuples;
 
 /**
  *
  * @author tjclancy
+ * @param <A>
+ * @param <B>
+ * @param <C>
+ * @param <D>
  */
-public final class StringFormatUtils {
+public interface Tuple4<A, B, C, D> {
+    A get_a();
 
-    public static String yesOrNo(boolean b) {
-        return b == true ? "yes" : "no";
-    }
+    B get_b();
 
-    public static String trueOrFalse(boolean b) {
-        return Boolean.toString(b);
-    }
+    C get_c();
 
-    public static String underline(String message) {
-        return underline(message, '=');
-    }
-
-    public static String underline(String message, char underlineChar) {
-        String underlineStr = fill(underlineChar, message.length());
-        return String.format("%s\n%s", message, underlineStr);
-    }
-
-    public static String fill(String fillValue, int count) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            sb.append(fillValue);
-        }
-        return sb.toString();
-    }
-
-    public static String fill(char c, int count) {
-        char[] ca = new char[count];
-        Arrays.fill(ca, c);
-        return String.valueOf(ca);
-    }
-
+    D get_d();
 }
