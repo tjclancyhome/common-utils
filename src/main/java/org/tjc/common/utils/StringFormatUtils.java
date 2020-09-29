@@ -26,11 +26,19 @@ package org.tjc.common.utils;
 import java.util.Arrays;
 
 /**
+ * Some convenient string format utility methods.
  *
  * @author tjclancy
  */
 public final class StringFormatUtils {
 
+    /**
+     * Return 'yes' if b == true, 'false' otherwise.
+     *
+     * @param b
+     *
+     * @return A string containing 'yes' if b == true, 'false' otherwise.
+     */
     public static String yesOrNo(boolean b) {
         return b == true ? "yes" : "no";
     }
