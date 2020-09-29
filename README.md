@@ -1,3 +1,4 @@
 # Common Utils Classes
 
-Contains some useful, general utility classes.
+Contains some useful and general utility classes.
+
